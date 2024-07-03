@@ -40,10 +40,8 @@ public class SecurityConfig {
                         .requestMatchers( "/css/**", "/js/**","/fonts/**","/img/**",  "/",
                                  "/register", "/error")
                         .permitAll()
-                        .requestMatchers( "/admin","/categories")
+                        .requestMatchers( "/admin")
                         .hasAnyAuthority("ADMIN")
-                        .requestMatchers("/books", "/books/add")
-                        .hasAnyAuthority("USER","ADMIN")
                         .anyRequest().authenticated()
                 )
                 .logout(logout -> logout.logoutUrl("/logout")
