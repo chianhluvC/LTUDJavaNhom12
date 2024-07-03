@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm loại giảm giá thiết bị</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1>Thêm mới loại giảm giá</h1>
+    <form th:action="@{/discounts/add}" th:object="${discount}" method="post">
+        <div class="col-6 mb-3">
+            <label class="form-label" for="title">Tên loại giảm giá:</label>
+            <input class="form-control" type="text" th:field="*{name}" id="title">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="discountPercent">% giảm giá:</label>
+            <input class="form-control" type="text" th:field="*{discountPercent}" id="discountPercent">
+            <span th:if="${#fields.hasErrors('discountPercent')}" th:errors="*{discountPercent}" class="text-danger"></span>
+        </div>
+        <input type="submit" class="btn btn-primary" value="Thêm mới">
+    </form>
+    <a th:href="@{/discounts}">Trở về danh sách loại giảm giá</a>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

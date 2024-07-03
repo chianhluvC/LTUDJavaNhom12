@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security4"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách loại giảm giá </title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <div>
+        <a href="/discounts/add" class="btn btn-primary">Thêm loại giảm giá</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Mã loại </th>
+            <th>Tên loại giảm giá </th>
+            <th>% giảm giá </th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
+        </tr>
+        <tr th:each="discount : ${discounts}">
+            <td th:text="${discount.id}"></td>
+            <td th:text="${discount.name}"></td>
+            <td th:text="${discount.discountPercent}"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/discounts/edit/{id}(id=${discount.id})}">Sửa</a>
+                <a th:href="@{/discounts/delete/{id}(id=${discount.id})}" onclick="return confirm('Bạn có muốn xóa?')">Xóa</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="layout::footer"></th:block>
+</body>
+</html>

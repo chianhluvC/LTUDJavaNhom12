@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>Đăng nhập</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+
+<body>
+
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <th:block th:replace="layout::header"></th:block>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">login</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- login register wrapper start -->
+        <div class="login-register-wrapper">
+            <div class="container">
+                <div class="member-area-from-wrap">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <!-- Login Content Start -->
+                        <div class="col-lg-6">
+                            <div class="login-reg-form-wrap  pr-lg-50">
+                                <h2>Đăng nhập</h2>
+                                <form th:action="@{/login}" method="post">
+                                    <div th:if="${param.error}" class="alert alert-danger">
+                                        Invalid username and password.
+                                    </div>
+                                    <div th:if="${param.logout}" class="alert alert-success">
+                                        you have been logout.
+                                    </div>
+                                    <div class="single-input-item">
+                                        <input type="text" placeholder="Username"  id="username" name="username" required/>
+                                    </div>
+                                    <div class="single-input-item">
+                                        <input type="password" placeholder="Enter your Password"  id="password" name="password" required/>
+                                    </div>
+                                    <div class="single-input-item">
+                                        <div class="login-reg-form-meta d-flex align-items-center justify-content-between">
+                                            <div class="remember-meta">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
+                                                    <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                                </div>
+                                            </div>
+                                            <a class="text-primary text-center" href="/register">Don't have account. Sign up?</a>
+                                        </div>
+                                    </div>
+                                    <div class="single-input-item">
+                                        <button type="submit" class="sqr-btn">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Login Content End -->
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login register wrapper end -->
+
+        <!-- footer area start -->
+        <th:block th:replace="layout::footer"></th:block>
+        <!-- footer area end -->
+
+    </div>
+
+
+</body>
+
+
+</html>

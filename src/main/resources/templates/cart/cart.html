@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+    <!-- Site title -->
+    <title>Giỏ hàng</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+    
+</head>
+
+<body>
+
+
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <th:block th:replace="layout::header"></th:block>
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">cart</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- cart main wrapper start -->
+        <div class="cart-main-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Cart Table Area -->
+                        <div th:if="${cartItems.isEmpty()}" class="alert alert-info">Your cart is
+                            empty.</div>
+
+                        <div class="cart-table table-responsive">
+                            <table class="table table-bordered" th:unless="${cartItems.isEmpty()}">
+                                <thead>
+                                <tr>
+                                    <th class="pro-thumbnail">Thumbnail</th>
+                                    <th class="pro-title">Product</th>
+                                    <th class="pro-price">Price</th>
+                                    <th class="pro-quantity">Quantity</th>
+                                    <th class="pro-subtotal">Total</th>
+                                    <th class="pro-remove">Remove</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="item : ${cartItems}">
+                                    <td class="pro-thumbnail"><a href="#"><img class="img-fluid" th:src="${item.gettElectronicDevice().image}" alt="Product"/></a>
+
+                                    </td>
+                                    <td class="pro-title"><a th:text="${item.gettElectronicDevice().name}"></a></td>
+                                    <td class="pro-price"><span th:text="${#numbers.formatDecimal(item.gettElectronicDevice().discountPrice, 0, 'COMMA', 0, 'POINT')}"></span></td>
+                                    <td class="pro-quantity">
+                                        <form th:id="${'updateCartForm'+item.gettElectronicDevice().getId()}" th:action="@{/cart/update}" method="post" onsubmit="DoSubmit();">
+                                        <input type="hidden" name="item_id" th:value="${item.gettElectronicDevice().id}">
+                                        <input th:id="${item.gettElectronicDevice().getId()}" class="form-control" style="text-align: center" onchange="DoSubmit(this.id)" name="item_quantity" th:value="${item.gettQuantity()}" type="number" value="1">
+                                        </form>
+                                    </td>
+                                    <td class="pro-subtotal"><span th:text="${#numbers.formatDecimal(item.getAmount(), 0, 'COMMA', 0, 'POINT')}">
+                                    </span></td>
+                                    <td class="pro-remove"><a th:href="@{/cart/remove/{id}(id=${item.gettElectronicDevice().id})}"><i class="fa fa-trash-o"></i></a></td>
+
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+        
+                        <!-- Cart Update Option -->
+                        <div th:unless="${cartItems.isEmpty()}" class="cart-update-option d-block d-md-flex justify-content-between">
+                            <div class="apply-coupon-wrapper">
+                                <span style="color:#d8373e" th:if="${voucherMessage!=''}" th:text="${voucherMessage}"></span>
+                                <form th:action="@{/cart/addVoucher}" method="post" class=" d-block d-md-flex">
+                                    <input name="code" type="text" placeholder="Nhập Voucher giảm giá" required />
+                                    <button type="submit" class="sqr-btn">Apply Coupon</button>
+                                </form>
+                            </div>
+                            <div class="cart-update mt-sm-16">
+                                <a th:href="@{/cart/clear}" class="sqr-btn">Xóa giỏ hàng</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div th:unless="${cartItems.isEmpty()}" class="row">
+                    <div class="col-lg-5 ml-auto">
+                        <!-- Cart Calculation Area -->
+                        <div class="cart-calculator-wrapper">
+                            <div class="cart-calculate-items">
+                                <h3>Cart Totals</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Sub Total</td>
+                                            <td th:text="${#numbers.formatDecimal(subTotal, 0, 'COMMA', 0, 'POINT')}"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Voucher giảm giá</td>
+                                            <td th:if="${discount!=null}" th:text="'-'+'&nbsp;'+${#numbers.formatDecimal(discount, 0, 'COMMA', 0, 'POINT')}"></td>
+                                            <td th:if="${discount==null}">0</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Free Shipping</td>
+                                            <td>0 đ</td>
+                                        </tr>
+                                        <tr class="total">
+                                            <td>Total</td>
+                                            <td class="total-amount" th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 0, 'POINT')}"></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                            <a href="/order/checkout" class="sqr-btn d-block">Proceed To Checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart main wrapper end -->
+        
+        
+        <!-- footer area start -->
+        <th:block th:replace="layout::footer"></th:block>
+
+    </div>
+
+
+<script>
+    function DoSubmit(productId){
+        const value = document.getElementById(productId).value;
+        if(value==null||value===""||value<=0)
+            document.getElementById(productId).value = 1;
+        document.getElementById('updateCartForm'+productId).submit();
+    }
+</script>
+
+</body>
+
+
+</html>

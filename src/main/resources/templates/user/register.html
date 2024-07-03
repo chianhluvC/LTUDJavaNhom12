@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>Đăng Ký</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+
+<body>
+
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <th:block th:replace="layout::header"></th:block>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">register</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- login register wrapper start -->
+        <div class="login-register-wrapper">
+            <div class="container">
+                <div class="member-area-from-wrap">
+                    <div class="row">
+                        <div class="col-lg-3"></div>
+                        <!-- Register Content Start -->
+                        <div class="col-lg-6">
+                            <div class="login-reg-form-wrap mt-md-34 mt-sm-34">
+                                <h2>Đăng ký</h2>
+                                <form th:action="@{/register}" th:object="${user}" method="post">
+                                    <div class="single-input-item">
+                                        <input type="text" placeholder="Full Name" th:field="*{name}" id="name" required />
+                                        <span class="text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                                    </div>
+                                    <div class="single-input-item">
+                                        <input type="email" placeholder="Enter your Email" th:field="*{email}" id="email" required />
+                                        <span class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span>
+                                    </div>
+                                    <div class="single-input-item">
+                                        <input type="text" placeholder="Username" th:field="*{username}" id="username" required />
+                                        <span class="text-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="single-input-item">
+                                                <span class="text-danger">*</span>
+                                                <input type="password" placeholder="Enter your Password" th:field="*{password}" id="password" required />
+                                                <span class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="single-input-item">
+                                        <button class="sqr-btn" type="submit">Register</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Register Content End -->
+                        <div class="col-lg-3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- login register wrapper end -->
+
+
+        <!-- footer area start -->
+        <th:block th:replace="layout::footer"></th:block>
+        <!-- footer area end -->
+
+    </div>
+
+
+</body>
+
+
+</html>

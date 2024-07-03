@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm voucher</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body onload='document.getElementById("isActive").checked = true;'>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1>Thêm mới voucher</h1>
+    <form th:action="@{/vouchers/add}" th:object="${voucher}" method="post">
+        <div class="col-6 mb-3">
+            <label class="form-label" for="code">Mã Voucher:</label>
+            <input class="form-control" type="text" th:field="*{code}" id="code">
+            <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="description">Mô tả:</label>
+            <input class="form-control" type="text" th:field="*{description}" id="description">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="voucherPercent">% giảm giá:</label>
+            <input class="form-control" type="text" th:field="*{voucherPercent}" id="voucherPercent">
+            <span th:if="${#fields.hasErrors('voucherPercent')}" th:errors="*{voucherPercent}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="maxVoucher">Giá trị tối đa:</label>
+            <input class="form-control" type="number" th:field="*{maxVoucher}" id="maxVoucher">
+            <span th:if="${#fields.hasErrors('maxVoucher')}" th:errors="*{maxVoucher}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="endDate">Ngày kết thúc:</label>
+            <input class="form-control" type="date" th:field="*{endDate}" id="endDate">
+            <span th:if="${#fields.hasErrors('endDate')}" th:errors="*{endDate}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="isActive">Kích hoạt?:</label></p>
+            <input type="checkbox" th:checked="*{isActive}" id="isActive" name="isActive" >
+        </div>
+        <br>
+        <br>
+        <input type="submit" class="btn btn-primary" value="Thêm mới">
+    </form>
+    <a th:href="@{/vouchers}">Trở về danh sách voucher</a>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+<script>
+    document.getElementById("isActive").checked = false;
+</script>
+</body>
+</html>

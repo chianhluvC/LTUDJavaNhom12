@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security6"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách thiết bị điện tử</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<div class="container">
+    <h1>DANH SÁCH CÁC THIẾT BỊ</h1>
+    <a href="electronics/add" class="btn btn-primary">Thêm mới </a>
+    <table class="table">
+        <tr>
+            <th>Mã thiết bị</th>
+            <th>Tên thiết bị</th>
+            <th>Hình ảnh</th>
+            <th>Mô tả</th>
+            <th>Giá bán</th>
+            <th>Danh mục</th>
+            <th>Giảm giá</th>
+            <th>Giá khuyến mại</th>
+            <th>Kích hoạt?</th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
+        </tr>
+        <tr th:each="electronic : ${electronics}">
+            <td th:text="${electronic.id}"></td>
+            <td th:text="${electronic.name}"></td>
+            <td>
+                <img th:src="${electronic.image}" alt="anhTB" style="max-width: 100px;">
+            </td>
+            <td th:text="${electronic.description}"></td>
+            <td th:text="${#numbers.formatDecimal(electronic.price, 0, 'COMMA', 0, 'POINT')}"></td>
+            <td th:text="${electronic.category.name}"></td>
+            <td th:text="${electronic.discount.name}"></td>
+            <td th:text="${#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}"></td>
+            <td th:text="${electronic.isActive}"></td>
+            <td sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/electronics/edit/{id}(id=${electronic.id})}">Sửa</a>
+                <a th:href="@{/electronics/delete/{id}(id=${electronic.id})}" onclick="return confirm('Bạn có muốn xóa?')">Xóa</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

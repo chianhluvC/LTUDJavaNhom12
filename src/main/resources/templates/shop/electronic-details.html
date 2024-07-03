@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>Chi tiết thiết bị</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+
+<body>
+
+
+    <div class="wrapper box-layout">
+        <th:block th:replace="layout::header"></th:block>
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">product details</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- product details wrapper start -->
+        <div class="product-details-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <!-- product details inner end -->
+                        <div class="product-details-inner">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="product-large-slider mb-20 slick-arrow-style_2">
+                                        <div class="pro-large-img img-zoom" id="img1">
+                                            <img th:src="${electronic.image}" alt="pictureDetails" />
+                                        </div>
+                                    </div>
+                                    <div class="pro-nav slick-padding2 slick-arrow-style_2">
+                                        <div class="pro-nav-thumb"><img th:src="${electronic.image}" alt="" /></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="product-details-des mt-md-34 mt-sm-34">
+                                        <h3><a href="#" th:text="${electronic.name}"></a></h3>
+                                        <div class="ratings">
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span class="good"><i class="fa fa-star"></i></span>
+                                            <span><i class="fa fa-star"></i></span>
+                                            <div class="pro-review">
+                                                <span>1 review(s)</span>
+                                            </div>
+                                        </div>
+                                        <div class="customer-rev">
+                                            <a href="#">(1 customer review)</a>
+                                        </div>
+                                        <div class="availability mt-10">
+                                            <h5>Availability:</h5>
+                                            <span>1 in stock</span>
+                                        </div>
+                                        <div class="pricebox">
+                                            <span class="regular-price" th:text="*{#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}"> đ</span>
+                                        </div>
+                                        <p th:text="${electronic.description}"></p>
+                                        <div class="quantity-cart-box d-flex align-items-center">
+                                            <form th:action="@{/cart/upsert}" method="post">
+                                                <input type="hidden" th:value="${electronic.id}" name="id"/>
+                                            <div class="quantity">
+                                                <div class="pro-qty" style="margin-right: 10px"><input type="text" value="1" name="quantity"></div>
+                                                <button style="max-width: fit-content" class="btn btn-danger" >add to cart <i class="fa fa-shopping-cart"></i></button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                        <div class="useful-links mt-20">
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Compare"><i class="fa fa-refresh"></i>compare</a>
+                                            <a href="#" data-toggle="tooltip" data-placement="top" title="Wishlist"><i class="fa fa-heart-o"></i>wishlist</a>
+                                        </div>
+                                        <div class="share-icon mt-20">
+                                            <a class="facebook" href="#"><i class="fa fa-facebook"></i>like</a>
+                                            <a class="twitter" href="#"><i class="fa fa-twitter"></i>tweet</a>
+                                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i>save</a>
+                                            <a class="google" href="#"><i class="fa fa-google-plus"></i>share</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- product details inner end -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- product details wrapper end -->
+
+
+        <th:block th:replace="layout::footer"></th:block>
+
+    </div>
+
+</body>
+
+</html>

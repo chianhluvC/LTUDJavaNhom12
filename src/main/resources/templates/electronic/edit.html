@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sửa sách</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1>Sửa thiết bị điện tử</h1>
+    <form th:action="@{/electronics/edit/{id}(id=${electronic.id})}"  th:object="${electronic}" method="post">
+        <div class="col-6 mb-3">
+            <label class="form-label" for="title">Tên thiết bị:</label>
+            <input class="form-control" type="text" th:field="*{name}" id="title">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image">Hình ảnh 1:</label>
+            <input class="form-control" type="text" th:field="*{image}" id="image">
+            <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image1">Hình ảnh 2:</label>
+            <input class="form-control" type="text" th:field="*{image1}" id="image1">
+            <span th:if="${#fields.hasErrors('image1')}" th:errors="*{image1}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image2">Hình ảnh 3:</label>
+            <input class="form-control" type="text" th:field="*{image2}" id="image2">
+            <span th:if="${#fields.hasErrors('image2')}" th:errors="*{image2}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image3">Hình ảnh 4:</label>
+            <input class="form-control" type="text" th:field="*{image3}" id="image3">
+            <span th:if="${#fields.hasErrors('image3')}" th:errors="*{image3}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="description">Mô tả:</label>
+            <input class="form-control" type="text" th:field="*{description}" id="description">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="price">Giá:</label>
+            <input class="form-control" type="number" th:field="*{price}" id="price">
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="category">Danh mục:</label></p>
+            <select th:field="*{category.id}" class="form-control"  id="category" name="category.id">
+                <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${category.name}" th:selected="${category.id ==
+                        electronic.category.id}"></option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="discount">Loại giảm giá:</label></p>
+            <select th:field="*{discount.id}" class="form-control"  id="discount" name="discount.id">
+                <option th:each="discount : ${discounts}" th:value="${discount.id}"
+                        th:text="${discount.name}" th:selected="${discount.id ==
+                        electronic.discount.id}"></option>
+            </select>
+        </div>
+        <br>
+        <br>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="isActive">Kích hoạt?</label></p>
+            <input type="checkbox" th:checked="*{isActive}" id="isActive" name="isActive" >
+        </div>
+        <div class="col-6 mb-3">
+            <input type="submit" class="btn btn-primary" value="Lưu">
+        </div>
+    </form>
+    <a th:href="@{/electronics}">Trở về</a>
+</div>
+<th:block th:replace="layout::footer"></th:block>
+
+</body>
+</html>

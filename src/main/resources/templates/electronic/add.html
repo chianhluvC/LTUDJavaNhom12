@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm thiết bị</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1>Thêm mới thiết bị</h1>
+    <form th:action="@{/electronics/add}" th:object="${electronic}" method="post">
+        <div class="col-6 mb-3">
+            <label class="form-label" for="name">Tên thiết bị:</label>
+            <input class="form-control" type="text" th:field="*{name}" id="name">
+            <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image">Link hình ảnh 1:</label>
+            <input class="form-control" type="text" th:field="*{image}" id="image" >
+            <span th:if="${#fields.hasErrors('image')}" th:errors="*{image}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image1">Link hình ảnh 2:</label>
+            <input class="form-control" type="text" th:field="*{image1}" id="image1" >
+            <span th:if="${#fields.hasErrors('image1')}" th:errors="*{image1}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image2">Link hình ảnh 3:</label>
+            <input class="form-control" type="text" th:field="*{image2}" id="image2" >
+            <span th:if="${#fields.hasErrors('image2')}" th:errors="*{image2}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="image3">Link hình ảnh 4:</label>
+            <input class="form-control" type="text" th:field="*{image3}" id="image3" >
+            <span th:if="${#fields.hasErrors('image3')}" th:errors="*{image3}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="description">Mô tả:</label>
+            <input class="form-control" type="text" th:field="*{description}" id="description">
+            <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <label class="form-label" for="price">Giá:</label>
+            <input  class="form-control" type="number" th:field="*{price}" id="price" >
+            <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="text-danger"></span>
+        </div>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="category">Loại giảm giá:</label></p>
+            <select class="form-control" id="discount" name="discount.id">
+                <option value="">-- Select Discount --</option>
+                <option th:each="discount : ${discounts}" th:value="${discount.id}"
+                        th:text="${discount.name}"></option>
+            </select>
+            <span th:if="${#fields.hasErrors('discount')}" th:errors="*{discount}" class="text-danger"></span>
+        </div>
+        <br>
+        <br>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="isActive">Kích hoạt?:</label></p>
+            <input type="checkbox" th:checked="*{isActive}" id="isActive" name="isActive" >
+        </div>
+        <div class="col-6 mb-3">
+            <p><label class="form-label" for="category">Danh mục:</label></p>
+            <select class="form-control" id="category" name="category.id">
+                <option value="">-- Select Category --</option>
+                <option th:each="category : ${categories}" th:value="${category.id}"
+                        th:text="${category.name}"></option>
+            </select>
+            <span th:if="${#fields.hasErrors('category')}" th:errors="*{category}" class="text-danger"></span>
+        </div>
+        <br>
+        <br>
+        <div class="col-6 mb-3">
+            <input type="submit" class="btn btn-primary" value="Thêm mới">
+        </div>
+    </form>
+    <br>
+    <a th:href="@{/electronics}">Trở về danh sách</a>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

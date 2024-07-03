@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="meta description">
+
+    <!-- Site title -->
+    <title>Đặt hàng</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+
+<body>
+
+
+
+    <div class="wrapper box-layout">
+
+        <!-- header area start -->
+        <th:block th:replace="layout::header"></th:block>
+        <!-- header area end -->
+
+        <!-- breadcrumb area start -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap">
+                            <nav aria-label="breadcrumb">
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">checkout</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- breadcrumb area end -->
+
+        <!-- checkout main wrapper start -->
+        <div class="checkout-page-wrapper">
+            <form action="/order/submit" method="post">
+            <div class="container">
+                <div class="row">
+                    <!-- Checkout Billing Details -->
+                    <div class="col-lg-6">
+                        <div class="checkout-billing-details-wrap">
+                            <h2>Billing Details</h2>
+                            <div class="billing-form-wrap">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="customerName" class="required">Customer Name</label>
+                                                <input type="text" id="customerName" name="customerName" placeholder="Customer Name" required />
+                                            </div>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <div class="single-input-item">
+                                                <label for="phoneNumber" class="required">Phone Number</label>
+                                                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required />
+                                            </div>
+                                        </div>
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="address" class="required">Address</label>
+                                        <input type="text" id="address" name="address" placeholder="Address" required />
+                                    </div>
+        
+                                    <div class="single-input-item">
+                                        <label for="message">Order Note</label>
+                                        <textarea name="message" id="message" cols="30" rows="3" placeholder="Để lại lời nhắn cho cửa hàng."></textarea>
+                                    </div>
+
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- Order Summary Details -->
+                    <div class="col-lg-6">
+                        <div class="order-summary-details mt-md-26 mt-sm-26">
+                            <h2>Your Order Summary</h2>
+                            <div class="order-summary-content mb-sm-4">
+                                <!-- Order Summary Table -->
+                                <div class="order-summary-table table-responsive text-center">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Products</th>
+                                                <th>Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr th:each="item:${cartItems}">
+                                                <td><a th:href="@{/shop/detail/{id}(id=*{item.gettElectronicDevice().id})}" th:text="*{item.gettElectronicDevice().name}"> <strong th:text="*{item.gettQuantity()}"></strong></a></td>
+                                                <td th:text="*{#numbers.formatDecimal(item.getAmount(), 0, 'COMMA', 0, 'POINT')}"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td>Sub Total</td>
+                                                <td><strong th:text="${#numbers.formatDecimal(subTotal, 0, 'COMMA', 0, 'POINT')}"></strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Discount Voucher</td>
+                                                <td th:if="${discount!=null}" th:text="'-'+'&nbsp;'+${#numbers.formatDecimal(discount, 0, 'COMMA', 0, 'POINT')}"></td>
+                                                <td th:if="${discount==null}">0</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Shipping</td>
+                                                <td class="d-flex justify-content-center">
+                                                    <ul class="shipping-type">
+                                                        <li>
+                                                            <div class="custom-control custom-radio">
+                                                                <p>Free Shipping</p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Total Amount</td>
+                                                <td><strong th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 0, 'POINT')}"></strong></td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- Order Payment Method -->
+                                <div class="order-payment-method">
+                                    <div class="single-payment-method show">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked  />
+                                                <label class="custom-control-label" for="cashon">Cash On Delivery</label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="cash">
+                                            <p>Pay with cash upon delivery.</p>
+                                        </div>
+                                    </div>
+                                    <div class="single-payment-method">
+                                        <div class="payment-method-name">
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="VNPAYPayment" name="paymentmethod" value="VNPay" class="custom-control-input" />
+                                                <label class="custom-control-label" for="VNPAYPayment">VNPAY <img th:src="@{/img/vnpay.jpg}" class="img-fluid paypal-card" alt="VNPay" /></label>
+                                            </div>
+                                        </div>
+                                        <div class="payment-method-details" data-method="VNPay">
+                                            <p>Pay via VNPay: You can pay with your credit card if you don’t have a VNPay account.</p>
+                                        </div>
+                                    </div>
+                                    <div class="summary-footer-area">
+                                        <div class="custom-control custom-checkbox mb-14">
+                                            <input type="checkbox" class="custom-control-input" id="terms" required />
+                                            <label class="custom-control-label" for="terms">I have read and agree to the website <a
+                                                href="#">terms and conditions.</a></label>
+                                        </div>
+                                        <button type="submit" class="check-btn sqr-btn">Place Order</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+
+        <!-- checkout main wrapper end -->
+        
+
+        <!-- footer area start -->
+        <th:block th:replace="layout::footer"></th:block>
+        <!-- footer area end -->
+
+    </div>
+
+
+
+</body>
+
+
+
+</html>

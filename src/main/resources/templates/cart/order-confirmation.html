@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order Confirmation</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1 style="text-align: center">Order Confirmation</h1>
+    <h3 th:text="'Đơn đặt hàng: '+${order.getId()}"></h3>
+    <p>Khách hàng:</p>
+    <p th:text="${order.getCustomerName()}"></p>
+    <p>Địa chỉ:</p>
+    <p th:text="${order.getAddress()}"></p>
+    <p>Số điện thoại:</p>
+    <p th:text="${order.getPhoneNumber()}"></p>
+    <p>Ngày đặt:</p>
+    <p th:text="${order.getOrderDate()}"></p>
+    <p>Tình trạng đơn hàng:</p>
+    <p th:text="${order.getOrderStatus()}"></p>
+    <p>Voucher giảm giá:</p>
+    <p th:text="${#numbers.formatDecimal(order.getDiscountPrice(), 0, 'COMMA', 0, 'POINT')}"></p>
+    <p>Tổng tiền:</p>
+    <p th:text="${#numbers.formatDecimal(order.getTotal(), 0, 'COMMA', 0, 'POINT')}"></p>
+    <br>
+    <br>
+
+    <div class="table-responsive">
+        <table class="table table-sm">
+            <thead>
+            <tr>
+                <th scope="col">Ảnh sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Tổng</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item:${details}">
+                <td>
+                    <img style="max-width: 100px" th:src="${item.getElectronicDevice().image}" alt="anhSP">
+                </td>
+                <td th:text="${item.getElectronicDevice().name}"></td>
+                <td th:text="${item.getQuantity()}"></td>
+                <td th:text="${#numbers.formatDecimal(item.getElectronicDevice().getPrice(), 0, 'COMMA', 0, 'POINT')}"></td>
+                <td th:text="${#numbers.formatDecimal(item.getQuantity()*item.getElectronicDevice().discountPrice, 0, 'COMMA', 0, 'POINT')}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

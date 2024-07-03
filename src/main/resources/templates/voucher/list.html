@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security4"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách voucher </title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+<div class="container">
+    <h1 th:text="${title}"></h1>
+    <div>
+        <a href="/vouchers/add" class="btn btn-primary">Thêm voucher</a>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Id voucher </th>
+            <th>Mã voucher </th>
+            <th>Mô tả voucher</th>
+            <th>% giảm giá </th>
+            <th>Ngày kết thúc</th>
+            <th>Giá khuyến mại tối đa</th>
+            <th>Kích hoạt ?</th>
+            <th sec:authorize="hasAnyAuthority('ADMIN')">Action</th>
+        </tr>
+        <tr th:each="voucher : ${vouchers}">
+            <td th:text="${voucher.id}"></td>
+            <td th:text="${voucher.code}"></td>
+            <td th:text="${voucher.description}"></td>
+            <td th:text="${voucher.voucherPercent}"></td>
+            <td th:text="${voucher.endDate}"></td>
+            <td th:text="${voucher.maxVoucher}"></td>
+            <td th:text="${voucher.isActive}"></td>
+            <td th:if="${voucher.code!='DEFAULT'}" sec:authorize="hasAnyAuthority('ADMIN')">
+                <a th:href="@{/vouchers/edit/{id}(id=${voucher.id})}">Sửa</a>
+                <a th:href="@{/vouchers/delete/{id}(id=${voucher.id})}" onclick="return confirm('Bạn có muốn xóa?')">Xóa</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="layout::footer"></th:block>
+</body>
+</html>
