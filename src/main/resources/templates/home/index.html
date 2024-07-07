@@ -31,7 +31,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        <div class="main-header-inner">
+                        <div class="main-header-inner header-2">
                             <div class="category-toggle-wrap">
                                 <div class="category-toggle">
                                     Danh mục
@@ -40,128 +40,37 @@
                                     </div>
                                 </div>
                                 <nav class="category-menu hm-1">
-                                    <ul>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-desktop"></i>
-                                            computer</a></li>
-                                        <li class="menu-item-has-children"><a href="shop-grid-left-sidebar.html"><i
-                                                class="fa fa-camera"></i> camera</a>
-                                            <!-- Mega Category Menu Start -->
-                                            <ul class="category-mega-menu">
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">Smartphone</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Samsome</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">GL Stylus</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Uawei</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Cherry Berry</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">headphone</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Desktop Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mobile Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Wireless
-                                                            Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">LED Headphone</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">accessories</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Bank</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Data Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Battery</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">headphone</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Desktop Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mobile Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Wireless
-                                                            Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">LED Headphone</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul><!-- Mega Category Menu End -->
+                                    <ul th:each="item:${categories}">
+                                        <li>
+                                            <a th:text="${item.name}" th:href="@{'/shop/searchCategory?category='+${item.name}}">
+                                            </a>
                                         </li>
-                                        <li class="menu-item-has-children"><a href="shop-grid-left-sidebar.html"><i
-                                                class="fa fa-book"></i> smart phones</a>
-                                            <!-- Mega Category Menu Start -->
-                                            <ul class="category-mega-menu">
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">Smartphone</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Samsome</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">GL Stylus</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Uawei</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Cherry Berry</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">uPhone</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">headphone</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Desktop Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Mobile Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Wireless
-                                                            Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">LED Headphone</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Over-ear</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">accessories</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Bank</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Data Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Battery</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">OTG Cable</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="menu-item-has-children">
-                                                    <a href="shop-grid-left-sidebar.html">accessories</a>
-                                                    <ul>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Bank</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Data Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Power Cable</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">Battery</a></li>
-                                                        <li><a href="shop-grid-left-sidebar.html">OTG Cable</a></li>
-                                                    </ul>
-                                                </li>
-                                            </ul><!-- Mega Category Menu End -->
-                                        </li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-clock-o"></i>
-                                            watch</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-television"></i>
-                                            electronic</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-tablet"></i>
-                                            tablet</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-book"></i> books</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-microchip"></i>
-                                            microchip</a></li>
-                                        <li><a href="shop-grid-left-sidebar.html"><i class="fa fa-bullhorn"></i>
-                                            bullhorn</a></li>
                                     </ul>
                                 </nav>
                             </div>
                             <div class="main-menu">
                                 <nav id="mobile-menu">
                                     <ul>
-                                        <li class="active"><a th:href="@{/}"><i class="fa fa-home"></i>Trang Chủ <i class="fa fa-angle-down"></i></a>
+                                        <li class="active"><a th:href="@{/}"><i class="fa fa-home"></i>TRANG CHỦ</a>
                                         </li>
-                                        <li class="static"><a href="#">Trang <i class="fa fa-angle-down"></i></a>
+                                        <li class="static"><a th:href="@{/shop}">CỬA HÀNG</a></li>
+                                        <li><a th:href="@{/voucher}">VOUCHER</a>
                                         </li>
-                                        <li><a th:href="@{/shop}">Cửa Hàng <i class="fa fa-angle-down"></i></a>
+                                        <li><a>THÔNG TIN THÊM</a>
                                         </li>
-                                        <li><a href="#">Blog <i class="fa fa-angle-down"></i></a>
-                                        </li>
-                                        <li><a href="#">Liên hệ chúng tôi</a></li>
+
                                     </ul>
                                 </nav>
+                            </div>
+                            <div style="cursor: pointer" onclick="window.location='/cart';" class="mini-cart2">
+                                <div  class="header-mini-cart">
+                                    <div class="mini-cart-btn">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span th:text="${quantityNumber}" class="cart-notification"></span>
+                                    </div>
+                                    <div th:text="${#numbers.formatDecimal(totalNumber, 0, 'COMMA', 0, 'POINT')}+'đ'" class="cart-total-price">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -267,7 +176,7 @@
                             <!-- hot deals area start -->
                             <div class="main-sidebar hot-deals-wrap mb-30">
                                 <div class="section-title-2 d-flex justify-content-between mb-28">
-                                    <h3>hot deals</h3>
+                                    <h3>ưu đãi hấp dẫn</h3>
                                     <div class="slick-append"></div>
                                 </div> <!-- section title end -->
                                 <div class="deals-carousel-active slick-padding slick-arrow-style">
@@ -283,20 +192,20 @@
                                             </div>
                                             <div class="product-action-link">
                                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        data-toggle="tooltip" data-placement="left" title="Xem nhan"><i
                                                             class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                         class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="So sánh"><i
                                                         class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ"><i
                                                         class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                             <h4><a href="product-details.html">vertual product 01</a></h4>
                                             <div class="pricebox">
-                                                <span class="regular-price">$70.00</span>
+                                                <span class="regular-price">70000đ</span>
                                                 <div class="ratings">
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -304,7 +213,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -323,20 +232,20 @@
                                             </div>
                                             <div class="product-action-link">
                                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        data-toggle="tooltip" data-placement="left" title="Xem nhanh"><i
                                                             class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                         class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="So sánh"><i
                                                         class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ"><i
                                                         class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                             <h4><a href="product-details.html">vertual product 01</a></h4>
                                             <div class="pricebox">
-                                                <span class="regular-price">$70.00</span>
+                                                <span class="regular-price">70000đ</span>
                                                 <div class="ratings">
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -344,7 +253,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -363,20 +272,20 @@
                                             </div>
                                             <div class="product-action-link">
                                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                        data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                        data-toggle="tooltip" data-placement="left" title="Xem nhanh"><i
                                                             class="fa fa-search"></i></span> </a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                         class="fa fa-heart-o"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="So sánh"><i
                                                         class="fa fa-refresh"></i></a>
-                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                                <a href="#" data-toggle="tooltip" data-placement="left" title="Thêm vào giỏ"><i
                                                         class="fa fa-shopping-cart"></i></a>
                                             </div>
                                         </div>
                                         <div class="product-content">
                                             <h4><a href="product-details.html">vertual product 01</a></h4>
                                             <div class="pricebox">
-                                                <span class="regular-price">$70.00</span>
+                                                <span class="regular-price">70000đ</span>
                                                 <div class="ratings">
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -384,7 +293,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -398,7 +307,7 @@
                             <!-- best seller area start -->
                             <div class="main-sidebar category-wrapper mb-24">
                                 <div class="section-title-2 d-flex justify-content-between mb-28">
-                                    <h3>best seller</h3>
+                                    <h3>bán chạy nhất</h3>
                                     <div class="category-append"></div>
                                 </div> <!-- section title end -->
                                 <div class="category-carousel-active row" data-row="4">
@@ -413,10 +322,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -426,7 +335,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -443,10 +352,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -456,7 +365,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -473,10 +382,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -486,7 +395,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -503,10 +412,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -516,7 +425,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -533,10 +442,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -546,7 +455,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -563,10 +472,10 @@
                                                 <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -576,7 +485,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -593,10 +502,10 @@
                                                 <h4><a href="product-details.html">simple Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $150.00
+                                                        150000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$180.00</del>
+                                                        <del>180000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -606,7 +515,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -623,10 +532,10 @@
                                                 <h4><a href="product-details.html">external Product 01</a></h4>
                                                 <div class="price-box">
                                                     <div class="regular-price">
-                                                        $140.00
+                                                        140000đ
                                                     </div>
                                                     <div class="old-price">
-                                                        <del>$160.00</del>
+                                                        <del>160000đ</del>
                                                     </div>
                                                 </div>
                                                 <div class="ratings">
@@ -636,7 +545,7 @@
                                                     <span class="good"><i class="fa fa-star"></i></span>
                                                     <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span>1 review(s)</span>
+                                                        <span>1 đánh giá</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -649,7 +558,7 @@
                             <!-- blog area start -->
                             <div class="main-sidebar blog-area mb-24">
                                 <div class="section-title-2 d-flex justify-content-between mb-28">
-                                    <h3>latest blog</h3>
+                                    <h3>blog mới nhất</h3>
                                     <div class="category-append"></div>
                                 </div> <!-- section title end -->
                                 <!-- blog wrapper start -->
@@ -661,10 +570,10 @@
                                             </a>
                                         </div>
                                         <div class="blog-content">
-                                            <h3><a href="blog-details.html">post format audio</a></h3>
+                                            <h3><a href="blog-details.html">định dạng bài đăng âm thanh</a></h3>
                                             <div class="blog-meta">
-                                                <span class="posted-author">by: admin</span>
-                                                <span class="post-date">25 Nov, 2018</span>
+                                                <span class="posted-author">bởi: admin</span>
+                                                <span class="post-date">07, 07, 2024</span>
                                             </div>
                                             <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque massa
                                                 posuere ac. Quisque dapibus, est ac...</p>
@@ -678,15 +587,15 @@
                                             </a>
                                         </div>
                                         <div class="blog-content">
-                                            <h3><a href="blog-details.html">post format image</a></h3>
+                                            <h3><a href="blog-details.html">định dạng bài đăng hình ảnh</a></h3>
                                             <div class="blog-meta">
-                                                <span class="posted-author">by: admin</span>
+                                                <span class="posted-author">bởi: admin</span>
                                                 <span class="post-date">25 Nov, 2018</span>
                                             </div>
                                             <p>Curabitur sed diam enim. Sed varius faucibus lectus, a scelerisque massa
                                                 posuere ac. Quisque dapibus, est ac...</p>
                                         </div>
-                                        <a href="blog-details.html">read more <i class="fa fa-long-arrow-right"></i></a>
+                                        <a href="blog-details.html">đọc thêm <i class="fa fa-long-arrow-right"></i></a>
                                     </div> <!-- end single blog item -->
                                 </div>
                                 <!-- blog wrapper end -->
@@ -696,40 +605,34 @@
                             <!-- testimonial area start -->
                             <div class="main-sidebar testimonial-area pb-sm-70">
                                 <div class="section-title-2 mb-28">
-                                    <h3>Clients Say</h3>
+                                    <h3>Khách hàng nói</h3>
                                 </div> <!-- section title end -->
                                 <div class="testimonial-carousel-active slick-dot-style">
                                     <div class="testimonial-item text-center">
                                         <div class="testimonial-thumb">
-                                            <img th:src="@{/img/testimonial/team_member1.jpg}" alt="">
+                                            <img th:src="@{/img/testimonial/team_member_2.jpg}" alt="">
                                         </div>
                                         <div class="testimonial-content">
-                                            <h3><a href="#">Elizabeth Taylor</a></h3>
-                                            <p>Etiam rhoncus congue arcu sed interdum. Cras dolor diam, accumsan eu
-                                                aliquam eu, luctus vehicula velit. Nam eget tortor ut felis fermentum
-                                                sodales ac eu lacus</p>
+                                            <h3><a href="#">Văn Tài</a></h3>
+                                            <p>Nhân viên tại Shop XYZ rất nhiệt tình và thân thiện. Họ giải đáp mọi thắc mắc của tôi một cách nhanh chóng.</p>
                                         </div>
                                     </div> <!-- end single testimonial item -->
                                     <div class="testimonial-item text-center">
                                         <div class="testimonial-thumb">
-                                            <img th:src="@{/img/testimonial/team_member2.jpg}" alt="">
+                                            <img th:src="@{/img/testimonial/team_member_1.jpg}" alt="">
                                         </div>
                                         <div class="testimonial-content">
-                                            <h3><a href="#">Elizabeth Taylor</a></h3>
-                                            <p>Etiam rhoncus congue arcu sed interdum. Cras dolor diam, accumsan eu
-                                                aliquam eu, luctus vehicula velit. Nam eget tortor ut felis fermentum
-                                                sodales ac eu lacus</p>
+                                            <h3><a href="#">Đức Trí</a></h3>
+                                            <p>Giao hàng nhanh chóng và đúng hẹn. Tôi rất hài lòng về dịch vụ này.</p>
                                         </div>
                                     </div> <!-- end single testimonial item -->
                                     <div class="testimonial-item text-center">
                                         <div class="testimonial-thumb">
-                                            <img th:src="@{/img/testimonial/team_member3.jpg}" alt="">
+                                            <img th:src="@{/img/testimonial/team_member_3.jpg}" alt="">
                                         </div>
                                         <div class="testimonial-content">
-                                            <h3><a href="#">Elizabeth Taylor</a></h3>
-                                            <p>Etiam rhoncus congue arcu sed interdum. Cras dolor diam, accumsan eu
-                                                aliquam eu, luctus vehicula velit. Nam eget tortor ut felis fermentum
-                                                sodales ac eu lacus</p>
+                                            <h3><a href="#">Huy Bùi</a></h3>
+                                            <p>Sản phẩm tôi mua đều rất tốt. Chất lượng được đảm bảo và đáng giá tiền.</p>
                                         </div>
                                     </div> <!-- end single testimonial item -->
                                 </div>
@@ -747,7 +650,7 @@
                                 <div class="title-icon">
                                     <i class="fa fa-bookmark"></i>
                                 </div>
-                                <h3>featured</h3>
+                                <h3>Nổi bật</h3>
                             </div> <!-- section title end -->
                             <!-- featured category start -->
                             <div class="featured-carousel-active slick-padding slick-arrow-style">
@@ -763,20 +666,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">affiliate product</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$90.00</span>
+                                            <span class="regular-price">90.00đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -784,7 +687,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -803,20 +706,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">simple product 01</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$120.00</span>
+                                            <span class="regular-price">120.00đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -824,7 +727,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -843,20 +746,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">vertual product 05</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$60.00</span>
+                                            <span class="regular-price">60.00đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -864,7 +767,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -883,20 +786,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">grouped product</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$10.00</span>
+                                            <span class="regular-price">10.00đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -904,7 +807,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -923,20 +826,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">simple product 10</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$70.00</span>
+                                            <span class="regular-price">70000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -944,7 +847,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -963,20 +866,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">affiliate product</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$70.00</span>
+                                            <span class="regular-price">70000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -984,7 +887,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1012,7 +915,7 @@
                                 <div class="title-icon">
                                     <i class="fa fa-flask"></i>
                                 </div>
-                                <h3>New Arrivals</h3>
+                                <h3>Hàng mới về</h3>
                             </div> <!-- section title end -->
                             <!-- featured category start -->
                             <div class="featured-carousel-active slick-padding slick-arrow-style">
@@ -1028,20 +931,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">vertual product 01</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$70.00</span>
+                                            <span class="regular-price">70000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1049,7 +952,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1068,20 +971,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">simple product 02</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$100.00</span>
+                                            <span class="regular-price">100.00đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1089,7 +992,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1108,20 +1011,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">affiliate product</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$60.00</span>
+                                            <span class="regular-price">60000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1129,7 +1032,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1148,20 +1051,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">trendy product 03</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$50.00</span>
+                                            <span class="regular-price">50000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1169,7 +1072,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1188,20 +1091,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">simple product 20</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$80.00</span>
+                                            <span class="regular-price">80000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1209,7 +1112,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1228,20 +1131,20 @@
                                         </div>
                                         <div class="product-action-link">
                                             <a href="#" data-toggle="modal" data-target="#quick_view"> <span
-                                                    data-toggle="tooltip" data-placement="left" title="Quick view"><i
+                                                    data-toggle="tooltip" data-placement="left" title="xem nhanh"><i
                                                         class="fa fa-search"></i></span> </a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i
                                                     class="fa fa-heart-o"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i
                                                     class="fa fa-refresh"></i></a>
-                                            <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i
+                                            <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i
                                                     class="fa fa-shopping-cart"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content">
                                         <h4><a href="product-details.html">grouped product</a></h4>
                                         <div class="pricebox">
-                                            <span class="regular-price">$70.00</span>
+                                            <span class="regular-price">70000đ</span>
                                             <div class="ratings">
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span class="good"><i class="fa fa-star"></i></span>
@@ -1249,7 +1152,7 @@
                                                 <span class="good"><i class="fa fa-star"></i></span>
                                                 <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span>1 review(s)</span>
+                                                    <span>1 đánh giá</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -1289,7 +1192,7 @@
                                 <div class="col-lg-4">
                                     <div class="category-wrapper mb-md-24 mb-sm-24">
                                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                                            <h3>New Products</h3>
+                                            <h3>Sản Phẩm Mới</h3>
                                             <div class="category-append"></div>
                                         </div> <!-- section title end -->
                                         <div class="category-carousel-active row" data-row="4">
@@ -1304,7 +1207,7 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del></del>
@@ -1317,7 +1220,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1334,7 +1237,7 @@
                                                         <h4><a href="product-details.html">grouped Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $100.00
+                                                                100000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del></del>
@@ -1347,7 +1250,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1367,7 +1270,7 @@
                                                                 $155.00
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$160.00</del>
+                                                                <del>160000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1377,7 +1280,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1394,10 +1297,10 @@
                                                         <h4><a href="product-details.html">demandable Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $210.00
+                                                                210000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$240.00</del>
+                                                                <del>240000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1407,7 +1310,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1424,10 +1327,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1437,7 +1340,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1454,10 +1357,10 @@
                                                         <h4><a href="product-details.html">simple Product 12</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1467,7 +1370,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1484,10 +1387,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1497,7 +1400,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1514,7 +1417,7 @@
                                                         <h4><a href="product-details.html">grouped Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $90.00
+                                                                90000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del>$115.00</del>
@@ -1527,7 +1430,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1541,7 +1444,7 @@
                                 <div class="col-lg-4">
                                     <div class="category-wrapper mb-md-24 mb-sm-24">
                                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                                            <h3>Most viewed</h3>
+                                            <h3>Xem nhiều nhất</h3>
                                             <div class="category-append"></div>
                                         </div> <!-- section title end -->
                                         <div class="category-carousel-active row" data-row="4">
@@ -1556,10 +1459,10 @@
                                                         <h4><a href="product-details.html">simple Product 06</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $190.00
+                                                                190000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$210.00</del>
+                                                                <del>210000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1569,7 +1472,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1586,10 +1489,10 @@
                                                         <h4><a href="product-details.html">affiliate Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $45.00
+                                                                45000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$650.00</del>
+                                                                <del>650000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1599,7 +1502,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1616,10 +1519,10 @@
                                                         <h4><a href="product-details.html">grouped Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $120.00
+                                                                120000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$170.00</del>
+                                                                <del>170000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1629,7 +1532,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1646,7 +1549,7 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $180.00
+                                                                180000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del></del>
@@ -1659,7 +1562,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1676,10 +1579,10 @@
                                                         <h4><a href="product-details.html">external Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1689,7 +1592,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1706,10 +1609,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1719,7 +1622,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1736,10 +1639,10 @@
                                                         <h4><a href="product-details.html">download Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1749,7 +1652,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1766,10 +1669,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1779,7 +1682,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1793,7 +1696,7 @@
                                 <div class="col-lg-4">
                                     <div class="category-wrapper mb-md-24 mb-sm-24">
                                         <div class="section-title-2 d-flex justify-content-between mb-28">
-                                            <h3>hot sale</h3>
+                                            <h3>giảm giá hot</h3>
                                             <div class="category-append"></div>
                                         </div> <!-- section title end -->
                                         <div class="category-carousel-active row" data-row="4">
@@ -1808,10 +1711,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $120.00
+                                                                120000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$150.00</del>
+                                                                <del>150000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1821,7 +1724,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1838,7 +1741,7 @@
                                                         <h4><a href="product-details.html">grouped Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $160.00
+                                                                160000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del></del>
@@ -1851,7 +1754,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1868,10 +1771,10 @@
                                                         <h4><a href="product-details.html">download Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $140.00
+                                                                140000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$160.00</del>
+                                                                <del>160000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1881,7 +1784,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1898,10 +1801,10 @@
                                                         <h4><a href="product-details.html">simple Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $80.00
+                                                                80000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$100.00</del>
+                                                                <del>100000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1911,7 +1814,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1928,7 +1831,7 @@
                                                         <h4><a href="product-details.html">affiliate Product</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $120.00
+                                                                120000đ
                                                             </div>
                                                             <div class="old-price">
                                                                 <del></del>
@@ -1941,7 +1844,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1961,7 +1864,7 @@
                                                                 $130.00
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$140.00</del>
+                                                                <del>140000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -1971,7 +1874,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1988,10 +1891,10 @@
                                                         <h4><a href="product-details.html">Virtual Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $150.00
+                                                                150000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$180.00</del>
+                                                                <del>180000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -2001,7 +1904,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2018,10 +1921,10 @@
                                                         <h4><a href="product-details.html">variable Product 01</a></h4>
                                                         <div class="price-box">
                                                             <div class="regular-price">
-                                                                $70.00
+                                                                70000đ
                                                             </div>
                                                             <div class="old-price">
-                                                                <del>$90.00</del>
+                                                                <del>90000đ</del>
                                                             </div>
                                                         </div>
                                                         <div class="ratings">
@@ -2031,7 +1934,7 @@
                                                             <span class="good"><i class="fa fa-star"></i></span>
                                                             <span><i class="fa fa-star"></i></span>
                                                             <div class="pro-review">
-                                                                <span>1 review(s)</span>
+                                                                <span>1 đánh giá</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -2057,7 +1960,7 @@
                     <div class="title-icon">
                         <i class="fa fa-flash"></i>
                     </div>
-                    <h3>latest product</h3>
+                    <h3>Sản phẩm mới nhất</h3>
                 </div> <!-- section title end -->
                 <!-- featured category start -->
                 <div class="latest-product-active slick-padding slick-arrow-style">
@@ -2073,17 +1976,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">vertual product 01</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$70.00</span>
+                                <span class="regular-price">70000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2091,7 +1994,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -2110,17 +2013,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">simple product 04</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$80.00</span>
+                                <span class="regular-price">80000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2128,7 +2031,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -2147,17 +2050,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">grouped product 05</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$70.00</span>
+                                <span class="regular-price">70000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2165,7 +2068,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -2184,17 +2087,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">affiliate product 06</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$100.00</span>
+                                <span class="regular-price">100000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2202,7 +2105,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -2221,17 +2124,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">vertual product 01</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$70.00</span>
+                                <span class="regular-price">70000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2239,7 +2142,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>
@@ -2258,17 +2161,17 @@
                             </div>
                             <div class="product-action-link">
                                 <a href="#" data-toggle="modal" data-target="#quick_view"> <span data-toggle="tooltip"
-                                        data-placement="left" title="Quick view"><i class="fa fa-search"></i></span>
+                                        data-placement="left" title="xem nhanh"><i class="fa fa-search"></i></span>
                                 </a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Wishlist"><i class="fa fa-heart-o"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Compare"><i class="fa fa-refresh"></i></a>
-                                <a href="#" data-toggle="tooltip" data-placement="left" title="Add to cart"><i class="fa fa-shopping-cart"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="ds yêu thích"><i class="fa fa-heart-o"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="so sánh"><i class="fa fa-refresh"></i></a>
+                                <a href="#" data-toggle="tooltip" data-placement="left" title="thêm vào giỏ"><i class="fa fa-shopping-cart"></i></a>
                             </div>
                         </div>
                         <div class="product-content">
                             <h4><a href="product-details.html">simple product 01</a></h4>
                             <div class="pricebox">
-                                <span class="regular-price">$50.00</span>
+                                <span class="regular-price">50000đ</span>
                                 <div class="ratings">
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span class="good"><i class="fa fa-star"></i></span>
@@ -2276,7 +2179,7 @@
                                     <span class="good"><i class="fa fa-star"></i></span>
                                     <span><i class="fa fa-star"></i></span>
                                     <div class="pro-review">
-                                        <span>1 review(s)</span>
+                                        <span>1 đánh giá</span>
                                     </div>
                                 </div>
                             </div>

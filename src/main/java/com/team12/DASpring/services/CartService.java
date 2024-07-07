@@ -24,8 +24,7 @@ public class CartService {
 
     @Autowired
     private IElectronicDeviceRepository electronicDeviceRepository;
-    @Autowired
-    private DiscountService discountService;
+
 
     public void upsertCart(Long electronicId, int quantity){
         ElectronicDevice electronicDevice = electronicDeviceRepository.findById(electronicId)
@@ -68,6 +67,7 @@ public class CartService {
 
     public void clearCart(){
         cart.cartItems.clear();
+        cart.voucherCode=null;
     }
 
     public double getSubtotal(){
@@ -75,7 +75,11 @@ public class CartService {
     }
 
     public double getSubtotalWithVoucher(){
+        if(cart.cartItems.isEmpty())
+            return 0;
         double total = getSubtotal();
+        if(cart.voucherCode == null)
+            return total;
         Voucher voucher = voucherService.getVoucherByCode(cart.voucherCode).orElseThrow(null);
         if(voucher==null||voucher.getEndDate()==null)
             return total;

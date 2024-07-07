@@ -31,16 +31,14 @@ public class OrderService {
     private CartService cartService;
 
     @Autowired
-    private IuserRepository userRepository;
+    private UserService userService;
 
     @Autowired
     private VoucherService voucherService;
 
     @Transactional
     public Order createOrder(String customerName, String address, String message, String phoneNumber, List<CartItem> cartItems){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        User user = userRepository.findByUsername(userDetails.getUsername());
+        User user = userService.getUserLogin();
         Voucher voucher = new Voucher();
         Order order = new Order();
         if(voucherService.getVoucherByCode(cartService.getVoucherCode()).isPresent()){
@@ -72,6 +70,7 @@ public class OrderService {
             orderDetailRepository.save(detail);
         }
         cartService.clearCart();
+
         return order;
     }
 
@@ -89,6 +88,14 @@ public class OrderService {
         return orderDetailRepository.findAll().stream().filter(p->p.getOrder().getId().equals(id)).toList();
     }
 
+    public List<Order> getAll(){
+        return  orderRepository.findAll();
+    }
+
+    public List<Order> getAllOrderByUser(){
+        User user = userService.getUserLogin();
+        return orderRepository.getOrderByUserId(user.getId());
+    }
 
 
 

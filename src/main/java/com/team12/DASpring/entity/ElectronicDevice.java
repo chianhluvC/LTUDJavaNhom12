@@ -50,6 +50,16 @@ public class ElectronicDevice {
     @Column(name = "isActive")
     private Boolean isActive;
 
+    @Column(name = "starReview")
+    private int starReview;
+
+    @Column(name = "quantityReview")
+    private int quantityReview;
+
+    @Column(name = "averageStar")
+    private int averageStar;
+
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     @ValidCategoryId

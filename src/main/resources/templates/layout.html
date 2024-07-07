@@ -34,27 +34,27 @@
             </div>
 
             <div class="switcher-panel-item">
-                <h3>Color Schemes</h3>
+                <h3>Phối Màu</h3>
                 <ul class="nav flex-wrap colors">
-                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Red"></li>
-                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Green"></li>
-                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Soft-Green"></li>
-                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Sky-Blue"></li>
-                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Orange"></li>
-                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Violet"></li>
+                    <li class="default active" data-color="default" data-toggle="tooltip" data-placement="top" title="Đỏ"></li>
+                    <li class="green" data-color="green" data-toggle="tooltip" data-placement="top" title="Xanh"></li>
+                    <li class="soft-green" data-color="soft-green" data-toggle="tooltip" data-placement="top" title="Xanh-Lá"></li>
+                    <li class="sky-blue" data-color="sky-blue" data-toggle="tooltip" data-placement="top" title="Da-Trời"></li>
+                    <li class="orange" data-color="orange" data-toggle="tooltip" data-placement="top" title="Cam"></li>
+                    <li class="violet" data-color="violet" data-toggle="tooltip" data-placement="top" title="Tím"></li>
                 </ul>
             </div>
 
             <div class="switcher-panel-item">
-                <h3>Layout Style</h3>
+                <h3>Kiểu Bố Trí</h3>
                 <ul class="nav layout-changer">
-                    <li><button class="btn-layout-changer active" data-layout="wide">Wide</button></li>
-                    <li><button class="btn-layout-changer" data-layout="boxed">Boxed</button></li>
+                    <li><button class="btn-layout-changer active" data-layout="wide">Rộng</button></li>
+                    <li><button class="btn-layout-changer" data-layout="boxed">Hộp</button></li>
                 </ul>
             </div>
 
             <div class="switcher-panel-item bg">
-                <h3>Background Pattern</h3>
+                <h3>Mẫu Nền</h3>
                 <ul class="nav flex-wrap bgbody-style bg-pattern">
                     <li><img th:src="@{/img/bg-panel/bg-pettern/1.png}" alt="Pettern"></li>
                     <li><img th:src="@{/img/bg-panel/bg-pettern/2.png}" alt="Pettern"></li>
@@ -66,7 +66,7 @@
             </div>
 
             <div class="switcher-panel-item bg">
-                <h3>Background Image</h3>
+                <h3>Hình Nền</h3>
                 <ul class="nav flex-wrap bgbody-style bg-img">
                     <li><img th:src="@{/img/bg-panel/bg-img/01.jpg}" alt="Images"></li>
                     <li><img th:src="@{/img/bg-panel/bg-img/02.jpg}" alt="Images"></li>
@@ -106,18 +106,18 @@
                                         <div class="dropdown header-top-dropdown">
                                             <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
                                                aria-haspopup="true" aria-expanded="false">
-                                                my account
+                                                tài khoản
                                                 <i class="fa fa-angle-down"></i>
                                             </a>
                                             <div class="dropdown-menu" aria-labelledby="myaccount">
                                                 <ul>
                                                     <li sec:authorize="isAuthenticated()">
                                                         <form th:action="@{/logout}" method="post">
-                                                            <button class="dropdown-item" type="submit">Logout</button>
+                                                            <button class="dropdown-item" type="submit">đăng xuất</button>
                                                         </form>
                                                     </li>
                                                     <li sec:authorize="!isAuthenticated()">
-                                                        <a class="dropdown-item" href="/login">Login</a>
+                                                        <a class="dropdown-item" href="/login">đăng nhập</a>
                                                     </li>
                                                 </ul>
 
@@ -126,10 +126,13 @@
                                         </div>
                                     </li>
                                     <li sec:authorize="hasAnyAuthority('ADMIN')">
-                                        <a href="/admin">Quản lý</a>
+                                        <a href="/admin">quản lý</a>
                                     </li>
                                     <li>
-                                        <a th:href="@{/cart}">my cart</a>
+                                        <a th:href="@{/cart}">giỏ hàng</a>
+                                    </li>
+                                    <li>
+                                        <a th:href="@{/order/history}">lịch sử mua hàng</a>
                                     </li>
                                 </ul>
                             </nav>
@@ -146,7 +149,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-3">
                         <div class="brand-logo">
-                            <a href="/">
+                            <a th:href="@{/}">
                                 <img th:src="@{/img/logo/logo.png}" alt="brand logo">
                             </a>
                         </div>
@@ -184,20 +187,12 @@
                             </div>
                             <div class="header-middle-block">
                                 <div class="header-middle-searchbox">
-                                    <input type="text" placeholder="Search...">
-                                    <button class="search-btn"><i class="fa fa-search"></i></button>
+                                    <form th:action="@{/shop/search}" method="post">
+                                    <input name="deviceSearch" type="text" placeholder="tìm kiếm tên, loại, mô tả, giá">
+                                    <button type="submit" class="search-btn"><i class="fa fa-search"></i></button>
+                                    </form>
                                 </div>
-
-                                        <div class="header-mini-cart">
-                                            <div class="mini-cart-btn">
-                                                <i class="fa fa-shopping-cart"></i>
-                                                <span class="cart-notification"></span>
-                                            </div>
-                                            <div class="cart-total-price">
-                                                <span></span>
-                                            </div>
-                                        </div>
-                                    </div>
+                            </div>
 
                             </div>
                         </div>
@@ -385,92 +380,6 @@
         <!-- footer bootom end -->
     <!-- footer area end -->
 
-    <!-- Quick view modal start -->
-    <div class="modal" id="quick_view">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <!-- product details inner end -->
-                    <div class="product-details-inner">
-                        <div class="row">
-                            <div class="col-lg-5">
-                                <div class="product-large-slider slick-arrow-style_2 mb-20">
-                                    <div class="pro-large-img">
-                                        <img th:src="@{/img/product/product-details-img1.jpg}" alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img th:src="@{/img/product/product-details-img2.jpg}" alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img th:src="@{/img/product/product-details-img3.jpg}" alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img th:src="@{/img/product/product-details-img4.jpg}" alt="" />
-                                    </div>
-                                    <div class="pro-large-img">
-                                        <img th:src="@{/img/product/product-details-img5.jpg}" alt="" />
-                                    </div>
-                                </div>
-                                <div class="pro-nav slick-padding2 slick-arrow-style_2">
-                                    <div class="pro-nav-thumb"><img th:src="@{/img/product/product-details-img1.jpg}"
-                                                                    alt="" /></div>
-                                    <div class="pro-nav-thumb"><img th:src="@{/img/product/product-details-img2.jpg}"
-                                                                    alt="" /></div>
-                                    <div class="pro-nav-thumb"><img th:src="@{/img/product/product-details-img3.jpg}"
-                                                                    alt="" /></div>
-                                    <div class="pro-nav-thumb"><img th:src="@{/img/product/product-details-img4.jpg}"
-                                                                    alt="" /></div>
-                                    <div class="pro-nav-thumb"><img th:src="@{/img/product/product-details-img5.jpg}"
-                                                                    alt="" /></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-7">
-                                <div class="product-details-des mt-md-34 mt-sm-34">
-                                    <h3><a href="product-details.html">external product 12</a></h3>
-                                    <div class="ratings">
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span class="good"><i class="fa fa-star"></i></span>
-                                        <span><i class="fa fa-star"></i></span>
-                                        <div class="pro-review">
-                                            <span>1 review(s)</span>
-                                        </div>
-                                    </div>
-                                    <div class="availability mt-10">
-                                        <h5>Availability:</h5>
-                                        <span>1 in stock</span>
-                                    </div>
-                                    <div class="pricebox">
-                                        <span class="regular-price">$160.00</span>
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-                                        tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                        Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea
-                                        dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris
-                                        consequat nisi ut mauris efficitur lacinia.</p>
-                                    <div class="quantity-cart-box d-flex align-items-center mt-20">
-                                        <div class="quantity">
-                                            <div class="pro-qty"><input type="text" value="1"></div>
-                                        </div>
-                                        <div class="action_link">
-                                            <a class="buy-btn" href="#">add to cart<i class="fa fa-shopping-cart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- product details inner end -->
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Quick view modal end -->
 
     <!-- Scroll to top start -->
     <div class="scroll-top not-visible">

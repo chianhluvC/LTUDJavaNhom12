@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lịch sử mua hàng</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+
+    <style>
+        ul.timeline-3 {
+            list-style-type: none;
+            position: relative;
+        }
+        ul.timeline-3:before {
+            content: " ";
+            background: #d4d9df;
+            display: inline-block;
+            position: absolute;
+            left: 29px;
+            width: 2px;
+            height: 100%;
+            z-index: 400;
+        }
+        ul.timeline-3 > li {
+            margin: 20px 0;
+            padding-left: 50px;
+        }
+        ul.timeline-3 > li:before {
+            content: " ";
+            background: white;
+            display: inline-block;
+            position: absolute;
+            border-radius: 50%;
+            border: 3px solid #22c0e8;
+            left: 20px;
+            width: 20px;
+            height: 20px;
+            z-index: 400;
+        }
+    </style>
+
+</head>
+<body>
+<th:block th:replace="layout::header"></th:block>
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">LỊCH SỬ MUA HÀNG</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart-main-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div th:if="${histories.size()==0}" class="alert alert-info">Hãy thanh toán để xem lịch sử !</div>
+                <div th:if="${histories.size()!=0}" class="container my-5">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
+                            <h4 style="margin-left: 1.2rem;">LỊCH SỬ MUA HÀNG</h4>
+                            <ul class="timeline-3" th:each="item:${histories}">
+                                <li>
+                                    <a href="#!" th:text="'MHD #'+${item.id}"></a>
+                                    <a href="#!" th:text="'&nbsp;'+${#temporals.format(item.orderDate, 'dd-MM-yyyy HH:mm')}" class="float-end"></a>
+                                    <p class="mt-2" th:text="'Thành tiền: '+${#numbers.formatDecimal(item.getTotal(), 0, 'COMMA', 0, 'POINT')}+'đ'"></p>
+                                    <p class="mt-2" th:text="'Trạng thái: '+${item.orderStatus}"></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

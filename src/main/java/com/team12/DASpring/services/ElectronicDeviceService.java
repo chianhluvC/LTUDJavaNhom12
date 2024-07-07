@@ -8,6 +8,10 @@ import com.team12.DASpring.repository.IElectronicDeviceRepository;
 import jakarta.transaction.Transactional;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +24,10 @@ import java.util.Optional;
 
 public class ElectronicDeviceService {
 
-    private final IElectronicDeviceRepository electronicDeviceRepository;
-    private final IDiscountRepository discountRepository;
+    @Autowired
+    private  IElectronicDeviceRepository electronicDeviceRepository;
+    @Autowired
+    private  IDiscountRepository discountRepository;
 
 
     public List<ElectronicDevice> getAllElectronicDevices(){
@@ -42,6 +48,9 @@ public class ElectronicDeviceService {
             electronicDevice.setDiscountPrice(electronicDevice.getPrice() * (100 - discount.getDiscountPercent())/100);
         else
             electronicDevice.setDiscountPrice(electronicDevice.getPrice());
+        electronicDevice.setStarReview(0);
+        electronicDevice.setQuantityReview(0);
+        electronicDevice.setAverageStar(0);
         return electronicDeviceRepository.save(electronicDevice);
     }
 
@@ -67,6 +76,9 @@ public class ElectronicDeviceService {
         existingElectronicDevice.setDescription(electronicDevice.getDescription());
         existingElectronicDevice.setDiscount(electronicDevice.getDiscount());
         existingElectronicDevice.setIsActive(electronicDevice.getIsActive());
+        existingElectronicDevice.setStarReview(electronicDevice.getStarReview());
+        existingElectronicDevice.setQuantityReview(electronicDevice.getQuantityReview());
+        existingElectronicDevice.setAverageStar(electronicDevice.getAverageStar());
         return electronicDeviceRepository.save(existingElectronicDevice);
 
     }
@@ -77,6 +89,35 @@ public class ElectronicDeviceService {
                     + "does not exist.");
         }
         electronicDeviceRepository.deleteById(id);
+    }
+
+    public List<ElectronicDevice> searchElectronicDevice(String name){
+        return electronicDeviceRepository.search(name);
+    }
+
+    public Page<ElectronicDevice> getAll(Integer pageNo){
+        Pageable pageable = PageRequest.of(pageNo-1,6);
+        return electronicDeviceRepository.findAll(pageable);
+    }
+
+    public void updateStarRatingAndQuantityReview(Long id, int star, int quantity){
+        ElectronicDevice electronicDevice = electronicDeviceRepository.findById(id).orElseThrow(()->new IllegalArgumentException("can't not find device with id: "+id));
+        int existingStar = electronicDevice.getStarReview();
+        int existingQuantity = electronicDevice.getQuantityReview();
+        electronicDevice.setStarReview(existingStar+star);
+        electronicDevice.setQuantityReview(existingQuantity+quantity);
+        electronicDeviceRepository.save(electronicDevice);
+    }
+
+    public void saveAverageStar(Long id){
+        ElectronicDevice electronicDevice = electronicDeviceRepository.findById(id).orElseThrow(null);
+        if(electronicDevice.getQuantityReview()==0)
+            electronicDevice.setAverageStar(0);
+        else {
+            int average = (int)electronicDevice.getStarReview() / electronicDevice.getQuantityReview();
+            electronicDevice.setAverageStar(average);
+        }
+        electronicDeviceRepository.save(electronicDevice);
     }
 
 

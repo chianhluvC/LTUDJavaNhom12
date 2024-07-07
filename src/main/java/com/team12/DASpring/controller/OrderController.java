@@ -5,6 +5,7 @@ import com.team12.DASpring.entity.CartItem;
 import com.team12.DASpring.entity.Order;
 import com.team12.DASpring.repository.IuserRepository;
 import com.team12.DASpring.services.CartService;
+import com.team12.DASpring.services.CategoryService;
 import com.team12.DASpring.services.OrderService;
 import com.team12.DASpring.services.VNPAYService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -29,8 +30,14 @@ public class OrderController {
     @Autowired
     private IuserRepository userRepository;
 
+    @Autowired
+    private CategoryService categoryService;
+
     @GetMapping("/checkout")
     public String checkout(Model model){
+        model.addAttribute("categories",categoryService.getAllCategories());
+        model.addAttribute("totalNumber",cartService.getSubtotalWithVoucher());
+        model.addAttribute("quantityNumber",cartService.getQuantity());
         model.addAttribute("cartItems", cartService.gettCartItems());
         model.addAttribute("subTotal", cartService.getSubtotal());
         if(cartService.checkVoucher(cartService.getVoucherCode()))
@@ -76,14 +83,27 @@ public class OrderController {
             return "/payment/fail";
         }
 
+        paymentTime = convertDateTime(paymentTime);
         model.addAttribute("orderId", orderInfo);
         model.addAttribute("totalPrice", totalPrice);
         model.addAttribute("paymentTime", paymentTime);
         model.addAttribute("transactionId", transactionId);
-        orderService.updateStatus(order,"Thanh toán VNPAY thành công với mã giao dịch là: "+ transactionId);
-
+        orderService.updateStatus(order,"Đã Thanh toán VNPAY GD: "+ transactionId);
         return "/payment/success";
     }
+
+    public String convertDateTime(String dateTime){
+        return dateTime.substring(6,8) + "-" + dateTime.substring(4,6) + "-" + dateTime.substring(0,4) + " "+ dateTime.substring(8,10) + ":"+ dateTime.substring(10,12) + ":" + dateTime.substring(12,14);
+    }
+
+
+
+    @GetMapping("/history")
+    public String history(Model model){
+        model.addAttribute("histories",orderService.getAllOrderByUser());
+        return "cart/order-history";
+    }
+
 
 
 }

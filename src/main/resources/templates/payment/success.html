@@ -13,35 +13,98 @@
 </head>
 <body>
 <th:block th:replace="layout::header"></th:block>
-<div class="body py-5">
+
+<div class="breadcrumb-area">
     <div class="container">
-        <div class="w-50 m-auto">
-            <h1 class="my-3 text-success text-center">Thanh toán thành công</h1>
-            <h2 class="my-2">Chi tiết đơn hàng</h2>
-            <table class="table table-bordered">
-                <tbody>
-                <tr>
-                    <td>Thông tin đơn hàng:</td>
-                    <td><span th:text="${orderId}">[order ID]</span></td>
-                </tr>
-                <tr>
-                    <td>Tổng tiền:</td>
-                    <td><span th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT')}">[total price]</span></td>
-                </tr>
-                <tr>
-                    <td>Thời gian thanh toán:</td>
-                    <td><span th:text="${paymentTime}">[payment time]</span></td>
-                </tr>
-                <tr>
-                    <td>Mã giao dịch:</td>
-                    <td><span th:text="${transactionId}">[transaction ID]</span></td>
-                </tr>
-                </tbody>
-            </table>
-            <a href="/" class="btn btn-primary">Về trang chủ</a>
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                            <li class="breadcrumb-item"><a href="/shop">CỬA HÀNG </a></li>
+                            <li class="breadcrumb-item"><a href="/cart">GIỎ HÀNG</a></li>
+                            <li class="breadcrumb-item"><a>ĐẶT HÀNG</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">THANH TOÁN</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<div class="body py-5">
+    <div class="container">
+        <div class="w-50 m-auto">
+            <div class="card">
+                <div class="card-body mx-4">
+                    <div class="container">
+                        <p class="my-12 mx-12" style="font-size: 30px; color: #189f2b;text-align: center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                                <path d="m10.97 4.97-.02.022-3.473 4.425-2.093-2.094a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05"/>
+                            </svg>
+                        </p>
+                        <br>
+                        <p class="my-6 mx-6" style="font-size: 30px; color: #189f2b;text-align: center">
+                            Thanh Toán VNPAY Thành Công</p>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <hr>
+                            <div class="col-xl-6">
+                                <p>Mã Giao Dịch:</p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p th:text="'#'+${transactionId}" class="float-end">
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p>Thông Tin Đơn Hàng:</p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p th:text="'#'+${orderId}" class="float-end">
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p>Thời Gian Thanh Toán:</p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p th:text="${paymentTime}" class="float-end">
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <p>Tổng Tiền:</p>
+                            </div>
+                            <div class="col-xl-6">
+                                <p th:text="${#numbers.formatDecimal(totalPrice, 0, 'COMMA', 0, 'POINT')}+'đ'" class="float-end">
+                                </p>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="text-center" style="margin-top: 90px;">
+                            <a href="order/history"><u class="text-info">Xem lịch sử mua hàng</u></a>
+                            <p>Chi tiết hóa đơn và tất cả các hóa đơn bạn đã mua.</p>
+                            <a href="/"><u class="text-info">Về Trang Chủ</u></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 <th:block th:replace="layout::footer"></th:block>

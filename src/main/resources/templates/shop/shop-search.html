@@ -9,7 +9,7 @@
     <meta name="description" content="meta description">
 
     <!-- Site title -->
-    <title>Tất cả thiết bị</title>
+    <title th:text="${message}"></title>
     <!-- Favicon -->
     <th:block th:replace="layout::link-shortcut"></th:block>
     <th:block th:replace="layout::link-css"></th:block>
@@ -91,7 +91,7 @@
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">CỬA HÀNG</li>
+                                    <li th:text="${message}" class="breadcrumb-item active" aria-current="page"></li>
                                 </ul>
                             </nav>
                         </div>
@@ -138,7 +138,7 @@
                                     <div class="product-item fix mb-30" >
                                         <div class="product-thumb">
                                             <a th:href="@{/shop/detail/{id}(id=${electronic.id})}">
-                                                <img th:src="${electronic.image}" class="img-pri" alt="">
+                                                <img th:src="*{electronic.image}" class="img-pri" alt="">
                                             </a>
                                             <div class="product-label">
                                                 <span>hot</span>
@@ -148,14 +148,17 @@
                                             </div>
                                         </div>
                                         <div class="product-content">
-                                            <h4><a th:href="@{/shop/detail/{id}(id=${electronic.id})}" th:text="${electronic.name}"></a></h4>
+                                            <h4><a th:href="@{/shop/detail/{id}(id=${electronic.id})}" th:text="*{electronic.name}"></a></h4>
                                             <div class="pricebox">
-                                                <span class="regular-price" th:text="${#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}+'đ'"></span>
+                                                <span class="regular-price" th:text="${#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}"></span>
                                                 <div class="ratings">
-                                                    <span th:if="${electronic.starReview==0}" th:each="i:${#numbers.sequence(1,5)}"  ><i class="fa fa-star-o"></i></span>
-                                                    <span th:if="${electronic.starReview!=0}" th:each="i:${#numbers.sequence(1,electronic.averageStar)}" class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span class="good"><i class="fa fa-star"></i></span>
+                                                    <span><i class="fa fa-star"></i></span>
                                                     <div class="pro-review">
-                                                        <span th:text="${electronic.quantityReview}+' đánh giá'"></span>
+                                                        <span>1 review(s)</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +169,7 @@
                                     <div class="product-list-item mb-30">
                                         <div class="product-thumb">
                                             <a th:href="@{/shop/detail/{id}(id=${electronic.id})}">
-                                                <img th:src="${electronic.image}" class="img-pri" alt="">
+                                                <img th:src="*{electronic.image}" class="img-pri" alt="">
                                             </a>
                                             <div class="product-label">
                                                 <span>hot</span>
@@ -175,19 +178,22 @@
                                         <div class="product-list-content">
                                             <h3><a th:href="@{/shop/detail/{id}(id=${electronic.id})}" th:text="*{electronic.name}"></a></h3>
                                             <div class="ratings">
-                                                <span th:if="${electronic.starReview==0}" th:each="i:${#numbers.sequence(1,5)}"  ><i class="fa fa-star-o"></i></span>
-                                                <span th:if="${electronic.starReview!=0}" th:each="i:${#numbers.sequence(1,electronic.averageStar)}" class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span class="good"><i class="fa fa-star"></i></span>
+                                                <span><i class="fa fa-star"></i></span>
                                                 <div class="pro-review">
-                                                    <span th:text="${electronic.quantityReview}+' đánh giá'"></span>
+                                                    <span>1 review(s)</span>
                                                 </div>
                                             </div>
                                             <div class="pricebox">
-                                                <span class="regular-price" th:text="${#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}+'đ'"></span>
-                                                <span th:if="${electronic.isActive==true}" class="old-price"><del th:text="${#numbers.formatDecimal(electronic.price, 0, 'COMMA', 0, 'POINT')+'đ'}"></del></span>
+                                                <span class="regular-price" th:text="*{#numbers.formatDecimal(electronic.discountPrice, 0, 'COMMA', 0, 'POINT')}"></span>
+                                                <span th:if="${electronic.isActive==true}" class="old-price"><del th:text="${#numbers.formatDecimal(electronic.price, 0, 'COMMA', 0, 'POINT')}"></del></span>
                                             </div>
                                             <p th:text="*{electronic.description}"></p>
                                             <div class="product-list-action-link">
-                                                <a class="buy-btn" th:href="@{'/cart/add?id='+${electronic.id}+'&quantity=1'}" data-toggle="tooltip" data-placement="top" title="Thêm vào giỏ">mua ngay<i class="fa fa-shopping-cart"></i> </a>
+                                                <a class="buy-btn" th:href="@{'/cart/add?id='+${electronic.id}+'&quantity=1'}" data-toggle="tooltip" data-placement="top" title="Add to cart">go to buy <i class="fa fa-shopping-cart"></i> </a>
                                             </div>
                                         </div>
                                     </div>
@@ -199,20 +205,6 @@
                         </div>
                         <!-- product view wrapper area end -->
 
-                        <!-- start pagination area -->
-                        <div class="paginatoin-area text-center pt-28">
-                            <div class="row">
-                                <div class="col-12">
-                                    <ul class="pagination-box">
-                                        <li th:if="${currentPage!=1}"><a class="Previous" th:href="@{'?pageNo='+${currentPage - 1}}">Trước Đó</a></li>
-                                        <li th:each="i:${#numbers.sequence(1,totalPage)}"
-                                            th:classappend="${currentPage==i?'active':''}"><a th:href="@{'?pageNo='+${i}}" th:text="${i}"></a></li>
-                                        <li th:if="${currentPage!=totalPage}"><a class="Next" th:href="@{'?pageNo='+${currentPage+1}}">Kế Tiếp</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end pagination area -->
 
                     </div>
                     <!-- product main wrap end -->

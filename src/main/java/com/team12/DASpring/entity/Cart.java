@@ -7,6 +7,7 @@ public class Cart {
 
     public List<CartItem> cartItems = new ArrayList<>();
     public String voucherCode;
-    public Long Quantity;
+
+
 
 }

@@ -2,6 +2,7 @@ package com.team12.DASpring.services;
 
 
 
+import com.team12.DASpring.entity.ElectronicDevice;
 import com.team12.DASpring.entity.Voucher;
 import com.team12.DASpring.repository.IVoucherRepository;
 import jakarta.transaction.Transactional;
@@ -59,5 +60,10 @@ public class VoucherService {
         }
         voucherRepository.deleteById(id);
     }
+
+    public List<Voucher> getVoucherIsActive(){
+        return voucherRepository.getVoucherByIsActive(true);
+    }
+
 
 }

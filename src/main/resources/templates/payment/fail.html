@@ -13,8 +13,37 @@
 </head>
 <body>
 <th:block th:replace="layout::header"></th:block>
-<h1 class="my-3 text-danger text-center">Thanh toán VNPAY thất bại</h1>
-<a href="/" class="btn btn-primary">Về trang chủ</a>
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                            <li class="breadcrumb-item"><a href="/shop">CỬA HÀNG </a></li>
+                            <li class="breadcrumb-item"><a href="/cart">GIỎ HÀNG</a></li>
+                            <li class="breadcrumb-item"><a>ĐẶT HÀNG</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">THANH TOÁN</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<h1 style="text-align: center" class="text-danger">
+    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+    <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+    </svg>
+</h1>
+<h2 class="my-3 text-danger text-center">Thanh toán VNPAY thất bại</h2>
+<br>
+<div style="text-align: center">
+    <a href="/" style="width: 20px;height: 20px">QUAY LẠI TRANG CHỦ</a>
+</div>
 <th:block th:replace="layout::footer"></th:block>
 </body>
 </html>

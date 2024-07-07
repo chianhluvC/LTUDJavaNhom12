@@ -29,6 +29,60 @@
         <th:block th:replace="layout::header"></th:block>
         <!-- header area end -->
 
+        <div class="main-header-wrapper bdr-bottom1">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="main-header-inner header-2">
+                            <div class="category-toggle-wrap">
+                                <div class="category-toggle">
+                                    Danh mục
+                                    <div class="cat-icon">
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                                <nav style="display: none" class="category-menu hm-1">
+                                    <ul th:each="item:${categories}">
+                                        <li>
+                                            <a th:text="${item.name}" th:href="@{'/shop/searchCategory?category='+${item.name}}">
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div class="main-menu">
+                                <nav id="mobile-menu">
+                                    <ul>
+                                        <li class="active"><a th:href="@{/}"><i class="fa fa-home"></i>TRANG CHỦ</a>
+                                        </li>
+                                        <li class="static"><a th:href="@{/shop}">CỬA HÀNG</a></li>
+                                        <li><a th:href="@{/voucher}">VOUCHER</a>
+                                        </li>
+                                        <li><a>THÔNG TIN THÊM</a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div style="cursor: pointer" onclick="window.location='/cart';" class="mini-cart2">
+                                <div  class="header-mini-cart">
+                                    <div class="mini-cart-btn">
+                                        <i class="fa fa-shopping-cart"></i>
+                                        <span th:text="${quantityNumber}" class="cart-notification"></span>
+                                    </div>
+                                    <div th:text="${#numbers.formatDecimal(totalNumber, 0, 'COMMA', 0, 'POINT')}+'đ'" class="cart-total-price">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 d-block d-lg-none">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- breadcrumb area start -->
         <div class="breadcrumb-area">
             <div class="container">
@@ -37,9 +91,10 @@
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item"><a href="shop-grid-left-sidebar.html">shop</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">checkout</li>
+                                    <li class="breadcrumb-item"><a th:href="@{/}">TRANG CHỦ</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{/shop}">CỬA HÀNG</a></li>
+                                    <li class="breadcrumb-item"><a th:href="@{/shop}">GIỎ HÀNG</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">ĐẶT HÀNG</li>
                                 </ul>
                             </nav>
                         </div>
@@ -57,32 +112,32 @@
                     <!-- Checkout Billing Details -->
                     <div class="col-lg-6">
                         <div class="checkout-billing-details-wrap">
-                            <h2>Billing Details</h2>
+                            <h2>Chi Tiết Thanh Toán</h2>
                             <div class="billing-form-wrap">
 
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="single-input-item">
-                                                <label for="customerName" class="required">Customer Name</label>
-                                                <input type="text" id="customerName" name="customerName" placeholder="Customer Name" required />
+                                                <label for="customerName" class="required">Tên Khách Hàng</label>
+                                                <input type="text" id="customerName" name="customerName" placeholder="Nhập tên khách hàng " required />
                                             </div>
                                         </div>
         
                                         <div class="col-md-6">
                                             <div class="single-input-item">
-                                                <label for="phoneNumber" class="required">Phone Number</label>
-                                                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Phone Number" required />
+                                                <label for="phoneNumber" class="required">Số Điện Thoại</label>
+                                                <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Nhập số điện thoại" required />
                                             </div>
                                         </div>
                                     </div>
         
                                     <div class="single-input-item">
-                                        <label for="address" class="required">Address</label>
-                                        <input type="text" id="address" name="address" placeholder="Address" required />
+                                        <label for="address" class="required">Địa Chỉ</label>
+                                        <input type="text" id="address" name="address" placeholder="Nhập địa chỉ" required />
                                     </div>
         
                                     <div class="single-input-item">
-                                        <label for="message">Order Note</label>
+                                        <label for="message">Lời Nhắn</label>
                                         <textarea name="message" id="message" cols="30" rows="3" placeholder="Để lại lời nhắn cho cửa hàng."></textarea>
                                     </div>
 
@@ -93,48 +148,48 @@
                     <!-- Order Summary Details -->
                     <div class="col-lg-6">
                         <div class="order-summary-details mt-md-26 mt-sm-26">
-                            <h2>Your Order Summary</h2>
+                            <h2>Tóm Tắt Đơn Hàng Của Bạn</h2>
                             <div class="order-summary-content mb-sm-4">
                                 <!-- Order Summary Table -->
                                 <div class="order-summary-table table-responsive text-center">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Products</th>
-                                                <th>Total</th>
+                                                <th>Sản Phẩm</th>
+                                                <th>Tổng</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr th:each="item:${cartItems}">
-                                                <td><a th:href="@{/shop/detail/{id}(id=*{item.gettElectronicDevice().id})}" th:text="*{item.gettElectronicDevice().name}"> <strong th:text="*{item.gettQuantity()}"></strong></a></td>
-                                                <td th:text="*{#numbers.formatDecimal(item.getAmount(), 0, 'COMMA', 0, 'POINT')}"></td>
+                                                <td><a th:href="@{/shop/detail/{id}(id=${item.gettElectronicDevice().id})}" th:text="${item.gettElectronicDevice().name}"> <strong th:text="*{item.gettQuantity()}"></strong></a></td>
+                                                <td th:text="${#numbers.formatDecimal(item.getAmount(), 0, 'COMMA', 0, 'POINT')} +'đ'"></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <td>Sub Total</td>
-                                                <td><strong th:text="${#numbers.formatDecimal(subTotal, 0, 'COMMA', 0, 'POINT')}"></strong></td>
+                                                <td>Tổng Tiền</td>
+                                                <td><strong th:text="${#numbers.formatDecimal(subTotal, 0, 'COMMA', 0, 'POINT')}+'đ'"></strong></td>
                                             </tr>
                                             <tr>
-                                                <td>Discount Voucher</td>
-                                                <td th:if="${discount!=null}" th:text="'-'+'&nbsp;'+${#numbers.formatDecimal(discount, 0, 'COMMA', 0, 'POINT')}"></td>
-                                                <td th:if="${discount==null}">0</td>
+                                                <td>Voucher Giảm Giá</td>
+                                                <td th:if="${discount!=null}" th:text="'-'+'&nbsp;'+${#numbers.formatDecimal(discount, 0, 'COMMA', 0, 'POINT')+'đ'}"></td>
+                                                <td th:if="${discount==null}">0đ</td>
                                             </tr>
                                             <tr>
-                                                <td>Shipping</td>
+                                                <td>Vận Chuyển</td>
                                                 <td class="d-flex justify-content-center">
                                                     <ul class="shipping-type">
                                                         <li>
                                                             <div class="custom-control custom-radio">
-                                                                <p>Free Shipping</p>
+                                                                <p>Miễn Phí Vận Chuyển</p>
                                                             </div>
                                                         </li>
                                                     </ul>
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td>Total Amount</td>
-                                                <td><strong th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 0, 'POINT')}"></strong></td>
+                                                <td>Thành Tiền</td>
+                                                <td><strong th:text="${#numbers.formatDecimal(total, 0, 'COMMA', 0, 'POINT')}+'đ'"></strong></td>
                                             </tr>
                                         </tfoot>
                                     </table>
@@ -145,11 +200,11 @@
                                         <div class="payment-method-name">
                                             <div class="custom-control custom-radio">
                                                 <input type="radio" id="cashon" name="paymentmethod" value="cash" class="custom-control-input" checked  />
-                                                <label class="custom-control-label" for="cashon">Cash On Delivery</label>
+                                                <label class="custom-control-label" for="cashon">Tiền Mặt Khi Giao Hàng</label>
                                             </div>
                                         </div>
                                         <div class="payment-method-details" data-method="cash">
-                                            <p>Pay with cash upon delivery.</p>
+                                            <p>Nhận hàng xong khách hàng tiến hành thanh toán bằng tiền mặt (Ship Cod)</p>
                                         </div>
                                     </div>
                                     <div class="single-payment-method">
@@ -160,16 +215,16 @@
                                             </div>
                                         </div>
                                         <div class="payment-method-details" data-method="VNPay">
-                                            <p>Pay via VNPay: You can pay with your credit card if you don’t have a VNPay account.</p>
+                                            <p>Thanh toán qua VNPay: Bạn có thể thanh toán bằng thẻ tín dụng nếu chưa có tài khoản VNPay.</p>
                                         </div>
                                     </div>
                                     <div class="summary-footer-area">
                                         <div class="custom-control custom-checkbox mb-14">
                                             <input type="checkbox" class="custom-control-input" id="terms" required />
-                                            <label class="custom-control-label" for="terms">I have read and agree to the website <a
-                                                href="#">terms and conditions.</a></label>
+                                            <label class="custom-control-label" for="terms">Tôi đã đọc và đồng ý với trang web <a
+                                                href="#">điều khoản và điều kiện.</a></label>
                                         </div>
-                                        <button type="submit" class="check-btn sqr-btn">Place Order</button>
+                                        <button type="submit" class="check-btn sqr-btn">Đặt Hàng</button>
                                     </div>
 
                                 </div>

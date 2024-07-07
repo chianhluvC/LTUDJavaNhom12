@@ -13,53 +13,133 @@
 </head>
 <body>
 <th:block th:replace="layout::header"></th:block>
-<div class="container">
-    <h1 style="text-align: center">Order Confirmation</h1>
-    <h3 th:text="'Đơn đặt hàng: '+${order.getId()}"></h3>
-    <p>Khách hàng:</p>
-    <p th:text="${order.getCustomerName()}"></p>
-    <p>Địa chỉ:</p>
-    <p th:text="${order.getAddress()}"></p>
-    <p>Số điện thoại:</p>
-    <p th:text="${order.getPhoneNumber()}"></p>
-    <p>Ngày đặt:</p>
-    <p th:text="${order.getOrderDate()}"></p>
-    <p>Tình trạng đơn hàng:</p>
-    <p th:text="${order.getOrderStatus()}"></p>
-    <p>Voucher giảm giá:</p>
-    <p th:text="${#numbers.formatDecimal(order.getDiscountPrice(), 0, 'COMMA', 0, 'POINT')}"></p>
-    <p>Tổng tiền:</p>
-    <p th:text="${#numbers.formatDecimal(order.getTotal(), 0, 'COMMA', 0, 'POINT')}"></p>
-    <br>
-    <br>
 
-    <div class="table-responsive">
-        <table class="table table-sm">
-            <thead>
-            <tr>
-                <th scope="col">Ảnh sản phẩm</th>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Số lượng</th>
-                <th scope="col">Giá</th>
-                <th scope="col">Tổng</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="item:${details}">
-                <td>
-                    <img style="max-width: 100px" th:src="${item.getElectronicDevice().image}" alt="anhSP">
-                </td>
-                <td th:text="${item.getElectronicDevice().name}"></td>
-                <td th:text="${item.getQuantity()}"></td>
-                <td th:text="${#numbers.formatDecimal(item.getElectronicDevice().getPrice(), 0, 'COMMA', 0, 'POINT')}"></td>
-                <td th:text="${#numbers.formatDecimal(item.getQuantity()*item.getElectronicDevice().discountPrice, 0, 'COMMA', 0, 'POINT')}"></td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="breadcrumb-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadcrumb-wrap">
+                        <nav aria-label="breadcrumb">
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                                <li class="breadcrumb-item"><a href="/shop">CỬA HÀNG </a></li>
+                                <li class="breadcrumb-item"><a href="/cart">GIỎ HÀNG</a></li>
+                                <li class="breadcrumb-item"><a>ĐẶT HÀNG</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">HÓA ĐƠN</li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-</div>
+    <section class="py-3 py-md-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-9 col-xl-8 col-xxl-7">
+                    <div class="row gy-3 mb-3">
+                        <div class="col-6">
+                            <h2 class="text-uppercase text-endx m-0">HÓA ĐƠN</h2>
+                        </div>
+                        <div class="col-6">
+                            <a style="float: right" class="d-block text-end" href="#!">
+                                <img th:src="@{/img/logo/logo.png}" class="img-fluid" alt="TEAM 12 Logo" width="135" height="44">
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <h4>Cửa Hàng</h4>
+                            <address>
+                                <strong>TEAM12</strong><br>
+                                123 Quán cháo gà<br>
+                                Tân Phú, Sài Gòn, 1234<br>
+                                Việt Nam<br>
+                                Liên Hệ: (093) 735-6614<br>
+                                Email: taideptrai@team12.com
+                            </address>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12 col-sm-6 col-md-8">
+                            <h4>Khách Hàng</h4>
+                            <address>
+                                <strong th:text="${order.customerName}"></strong><br>
+                                <p th:text="${order.address}"></p>
+                                <p th:text="${order.phoneNumber}"></p>
+                            </address>
+                        </div>
+                        <div class="col-12 col-sm-6 col-md-4">
+                            <h4 class="row">
+                                <span class="col-6">HÓA ĐƠN</span>
+                                <span th:text="'#'+${order.id}" class="col-6 text-sm-end"></span>
+                            </h4>
+                            <div class="row">
+                                <span class="col-6">Ngày Đặt</span>
+                                <span th:text="${#temporals.format(order.orderDate, 'dd-MM-yyyy HH:mm')}" class="col-6 text-sm-end"></span>
+                                <span class="col-6">Trạng Thái</span>
+                                <span th:text="${order.orderStatus}" class="col-6 text-sm-end"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th scope="col" class="text-uppercase">Ảnh Sản Phẩm</th>
+                                        <th scope="col" class="text-uppercase">Tên Sản Phẩm</th>
+                                        <th scope="col" class="text-uppercase">SL</th>
+                                        <th scope="col" class="text-uppercase text-end">Giá</th>
+                                        <th scope="col" class="text-uppercase text-end">Giá KM</th>
+                                        <th scope="col" class="text-uppercase text-end">Tổng</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                    <tr th:each="item:${details}">
+                                        <th scope="row">
+                                            <img style="max-width: 100px" th:src="${item.getElectronicDevice().image}" alt="anhSP">
+                                        </th>
+                                        <td th:text="${item.getElectronicDevice().name}"></td>
+                                        <td th:text="${item.getQuantity()}"></td>
+                                        <td th:text="${#numbers.formatDecimal(item.getElectronicDevice().getPrice(), 0, 'COMMA', 0, 'POINT')}+'đ'" class="text-end"></td>
+                                        <td th:text="${#numbers.formatDecimal(item.getElectronicDevice().getDiscountPrice(), 0, 'COMMA', 0, 'POINT')+'đ'}" class="text-end"></td>
+                                        <td th:text="${#numbers.formatDecimal(item.getQuantity()*item.getElectronicDevice().discountPrice, 0, 'COMMA', 0, 'POINT')}+'đ'" class="text-end"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-end">Tổng Tiền</td>
+                                        <td th:text="${#numbers.formatDecimal(order.getTotal()+order.getDiscountPrice(), 0, 'COMMA', 0, 'POINT')}+'đ'" class="text-end"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-end">Voucher Giảm Giá</td>
+                                        <td th:text="${#numbers.formatDecimal(order.getDiscountPrice(), 0, 'COMMA', 0, 'POINT')}+'đ'" class="text-end"></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="5" class="text-end">Vận Chuyển</td>
+                                        <td class="text-end">Miễn Phí</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" colspan="5" class="text-uppercase text-end">Thành Tiền</th>
+                                        <td th:text="${#numbers.formatDecimal(order.getTotal(), 0, 'COMMA', 0, 'POINT')}+'đ'" class="text-end"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 text-end">
+                            <a href="/order/history" class="btn btn-primary mb-3">Xem Lịch Sử Mua Sắm</a>
+                            <a href="/" class="btn btn-danger mb-3">Về Trang Chủ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
 <th:block th:replace="layout :: footer"></th:block>
 </body>
 </html>

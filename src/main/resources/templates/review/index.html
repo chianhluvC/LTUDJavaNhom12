@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách đánh giá thiết bị</title>
+    <th:block th:replace="layout::link-shortcut"></th:block>
+    <th:block th:replace="layout::link-css"></th:block>
+    <th:block th:replace="layout::link-css1"></th:block>
+    <th:block th:replace="layout::link-css2"></th:block>
+    <th:block th:replace="layout::link-css3"></th:block>
+    <th:block th:replace="layout::link-css4"></th:block>
+    <th:block th:replace="layout::link-css5"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">QUẢN LÝ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">DANH SÁCH ĐÁNH GIÁ</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1 style="text-align: center">DANH SÁCH ĐÁNH GIÁ THIẾT BỊ</h1>
+    <br>
+    <table class="table">
+        <tr>
+            <th>Mã đánh giá</th>
+            <th>Khách hàng</th>
+            <th>Thiết bị</th>
+            <th>Số sao</th>
+            <th>Nhận xét</th>
+            <th>Thời gian</th>
+        </tr>
+        <tr th:each="item : ${reviews}">
+            <td th:text="${item.id}"></td>
+            <td th:text="${item.user.name}"></td>
+            <td th:text="${item.electronicDevice.name}"></td>
+            <td th:text="${item.starRating}"></td>
+            <td th:text="${item.comment}"></td>
+            <td th:text="${#temporals.format(item.reviewDate, 'dd-MM-yyyy HH:mm')}"></td>
+        </tr>
+    </table>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

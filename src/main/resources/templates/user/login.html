@@ -36,8 +36,8 @@
                         <div class="breadcrumb-wrap">
                             <nav aria-label="breadcrumb">
                                 <ul class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">login</li>
+                                    <li class="breadcrumb-item"><a href="/">TRANG CHỦ</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">ĐĂNG NHẬP</li>
                                 </ul>
                             </nav>
                         </div>
@@ -56,13 +56,13 @@
                         <!-- Login Content Start -->
                         <div class="col-lg-6">
                             <div class="login-reg-form-wrap  pr-lg-50">
-                                <h2>Đăng nhập</h2>
+                                <h2>ĐĂNG NHẬP</h2>
                                 <form th:action="@{/login}" method="post">
                                     <div th:if="${param.error}" class="alert alert-danger">
-                                        Invalid username and password.
+                                        Tên người dùng và mật khẩu không hợp lệ.
                                     </div>
                                     <div th:if="${param.logout}" class="alert alert-success">
-                                        you have been logout.
+                                        bạn đã đăng xuất.
                                     </div>
                                     <div class="single-input-item">
                                         <input type="text" placeholder="Username"  id="username" name="username" required/>
@@ -75,14 +75,14 @@
                                             <div class="remember-meta">
                                                 <div class="custom-control custom-checkbox">
                                                     <input type="checkbox" class="custom-control-input" id="remember-me" name="remember-me">
-                                                    <label class="custom-control-label" for="remember-me">Remember Me</label>
+                                                    <label class="custom-control-label" for="remember-me">GHI NHỚ</label>
                                                 </div>
                                             </div>
-                                            <a class="text-primary text-center" href="/register">Don't have account. Sign up?</a>
+                                            <a class="text-primary text-center" href="/register">Không có tài khoản. Đăng ký?</a>
                                         </div>
                                     </div>
                                     <div class="single-input-item">
-                                        <button type="submit" class="sqr-btn">Login</button>
+                                        <button type="submit" class="sqr-btn">ĐĂNG NHẬP</button>
                                     </div>
                                 </form>
                             </div>

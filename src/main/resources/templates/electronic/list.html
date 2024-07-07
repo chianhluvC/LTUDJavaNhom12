@@ -14,8 +14,26 @@
 </head>
 <body>
 <th:block th:replace="layout :: header"></th:block>
+
+<div class="breadcrumb-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="breadcrumb-wrap">
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/admin">QUẢN LÝ</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">THIẾT BỊ</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <h1>DANH SÁCH CÁC THIẾT BỊ</h1>
+    <h1 style="text-align: center">DANH SÁCH CÁC THIẾT BỊ</h1>
     <a href="electronics/add" class="btn btn-primary">Thêm mới </a>
     <table class="table">
         <tr>
