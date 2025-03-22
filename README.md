@@ -49,8 +49,8 @@ spring.jpa.hibernate.ddl-auto=update
 ### ▶️ Run the Application
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/your-repo/ecommerce-springboot.git
-   cd ecommerce-springboot
+   git clone https://github.com/chianhluvC/LTUDJavaNhom12.git
+   cd LTUDJavaNhom12
    ```
 2. **Install dependencies**:
    ```sh
