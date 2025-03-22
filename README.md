@@ -1,7 +1,7 @@
 # 🛒 E-commerce Website for Electronic Devices
 
-![image](https://github.com/user-attachments/assets/b1d6ee72-f77e-4cef-8614-5dfb1c12ccf1)
 ![image](https://github.com/user-attachments/assets/d412156b-c58f-46bc-861a-36c560d1b302)
+![image](https://github.com/user-attachments/assets/b1d6ee72-f77e-4cef-8614-5dfb1c12ccf1)
 ![image](https://github.com/user-attachments/assets/f5a1be08-9836-43cc-b049-0240d120fcd2)
 ![image](https://github.com/user-attachments/assets/b22e7d39-22b8-479d-b12d-3222bd40c1eb)
 ![image](https://github.com/user-attachments/assets/03ddcd6f-7e46-4f19-8243-0a328636af16)
