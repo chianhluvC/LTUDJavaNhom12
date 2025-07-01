@@ -1,4 +1,4 @@
-# 🛒 E-commerce Website for Electronic Devices
+# 🛒 E-Commerce Platform for Electronics – AWS Ready
 
 ![image](https://github.com/user-attachments/assets/d412156b-c58f-46bc-861a-36c560d1b302)
 ![image](https://github.com/user-attachments/assets/b1d6ee72-f77e-4cef-8614-5dfb1c12ccf1)
