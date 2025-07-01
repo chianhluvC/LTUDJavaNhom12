@@ -30,7 +30,7 @@ public class ElectronicController {
     @GetMapping
     public String showElectronicDeviceList(Model model){
         model.addAttribute("electronics", electronicDeviceService.getAllElectronicDevices() );
-        return "/electronic/list";
+        return "electronic/list";
     }
 
     @GetMapping("/add")
@@ -38,13 +38,13 @@ public class ElectronicController {
         model.addAttribute("electronic", new ElectronicDevice());
         model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("discounts", discountService.getAllDiscounts());
-        return "/electronic/add";
+        return "electronic/add";
     }
 
     @PostMapping("/add")
     public String addElectronic(@Valid ElectronicDevice electronicDevice, BindingResult result){
         if(result.hasErrors()){
-            return "/electronic/add";
+            return "electronic/add";
         }
         electronicDeviceService.addElectronicDevice(electronicDevice);
         return "redirect:/electronics";
@@ -58,7 +58,7 @@ public class ElectronicController {
         model.addAttribute("categories", categoryService.getAllCategories());
         model.addAttribute("discounts", discountService.getAllDiscounts() );
 
-        return "/electronic/edit";
+        return "electronic/edit";
     }
 
     @PostMapping("/edit/{id}")
@@ -66,7 +66,7 @@ public class ElectronicController {
                                          BindingResult result){
         if(result.hasErrors()){
             electronicDevice.setId(id);
-            return "/electronic/edit";
+            return "electronic/edit";
         }
         electronicDeviceService.updateElectronicDevice(electronicDevice);
 

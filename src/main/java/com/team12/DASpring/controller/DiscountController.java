@@ -28,13 +28,13 @@ public class DiscountController {
     @GetMapping("/add")
     public String showAddForm(Model model){
         model.addAttribute("discount", new Discount());
-        return "/discount/add";
+        return "discount/add";
     }
 
     @PostMapping("/add")
     public String addDiscount(@Valid Discount discount, BindingResult result){
         if(result.hasErrors()){
-            return "/discount/add";
+            return "discount/add";
         }
         discountService.addDiscount(discount);
         return "redirect:/discounts";
@@ -44,7 +44,7 @@ public class DiscountController {
     public String listDiscounts(Model model){
         List<Discount> discounts = discountService.getAllDiscounts();
         model.addAttribute("discounts",discounts);
-        return "/discount/list";
+        return "discount/list";
     }
 
     @GetMapping("/edit/{id}")
@@ -52,7 +52,7 @@ public class DiscountController {
         Discount discount = discountService.getDiscount(id)
                 .orElseThrow(()->new IllegalStateException("Invalid discount Id:" + id));
         model.addAttribute("discount", discount);
-        return "/discount/edit";
+        return "discount/edit";
     }
 
     @PostMapping("/edit/{id}")
@@ -60,7 +60,7 @@ public class DiscountController {
                                  BindingResult result, Model model){
         if(result.hasErrors()){
             discount.setId(id);
-            return "/category/edit";
+            return "category/edit";
         }
         discountService.updateDiscount(discount);
         model.addAttribute("discounts",discountService.getAllDiscounts());

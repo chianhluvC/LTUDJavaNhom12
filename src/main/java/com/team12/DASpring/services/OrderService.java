@@ -39,19 +39,17 @@ public class OrderService {
     @Transactional
     public Order createOrder(String customerName, String address, String message, String phoneNumber, List<CartItem> cartItems){
         User user = userService.getUserLogin();
-        Voucher voucher = new Voucher();
         Order order = new Order();
         if(voucherService.getVoucherByCode(cartService.getVoucherCode()).isPresent()){
-            voucher = voucherService.getVoucherByCode(cartService.getVoucherCode()).get();
+            Voucher voucher = voucherService.getVoucherByCode(cartService.getVoucherCode()).get();
             order.setTotal(cartService.getSubtotalWithVoucher());
             order.setDiscountPrice(cartService.getDiscount());
+            order.setVoucher(voucher);
         }
         else{
             order.setTotal(cartService.getSubtotal());
-            if (voucherService.getVoucherByCode("DEFAULT").isPresent())
-                voucher = voucherService.getVoucherByCode("DEFAULT").get();
         }
-        order.setVoucher(voucher);
+
         order.setUser(user);
         order.setCustomerName(customerName);
         order.setAddress(address);

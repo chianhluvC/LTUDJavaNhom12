@@ -49,7 +49,7 @@ public class OrderController {
             model.addAttribute("total", cartService.getSubtotal());
         }
 
-        return "/cart/checkout";
+        return "cart/checkout";
     }
     @PostMapping("/submit")
     public String submitOrder(String customerName, String phoneNumber, String address, String message, String paymentmethod, HttpServletRequest request, Model model){
@@ -80,7 +80,7 @@ public class OrderController {
         Order order = orderService.getOrderById(Long.parseLong(orderInfo)).orElseThrow(()->new IllegalArgumentException("Order with id: "+Long.parseLong(orderInfo)+" does not exit."));
         if(paymentStatus != 1){
             orderService.updateStatus(order,"Thanh toán VNPAY thất bại!");
-            return "/payment/fail";
+            return "payment/fail";
         }
 
         paymentTime = convertDateTime(paymentTime);
@@ -89,7 +89,7 @@ public class OrderController {
         model.addAttribute("paymentTime", paymentTime);
         model.addAttribute("transactionId", transactionId);
         orderService.updateStatus(order,"Đã Thanh toán VNPAY GD: "+ transactionId);
-        return "/payment/success";
+        return "payment/success";
     }
 
     public String convertDateTime(String dateTime){

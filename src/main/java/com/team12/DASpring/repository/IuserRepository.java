@@ -22,7 +22,7 @@ public interface IuserRepository extends JpaRepository<User, Long> {
     @Query(value = "select u.id from User u where u.username = ?1")
     Long getUserIdByUsername(String username);
 
-    @Query(value = "SELECT r.name FROM  Role  r INNER JOIN user_role ur "+ "ON r.id = ur.role_id " +
+    @Query(value = "SELECT r.name FROM  role  r INNER JOIN user_role ur "+ "ON r.id = ur.role_id " +
             "WHERE ur.user_id = ?1 ", nativeQuery = true)
     String[] getRoleOfUser(Long userId);
 

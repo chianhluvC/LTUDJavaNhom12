@@ -27,13 +27,13 @@ public class CategoryController {
     @GetMapping("/add")
     public String showAddForm(Model model){
         model.addAttribute("category", new Category());
-        return "/category/add";
+        return "category/add";
     }
 
     @PostMapping("/add")
     public String addCategory(@Valid Category category, BindingResult result){
         if(result.hasErrors()){
-            return "/category/add";
+            return "category/add";
         }
         categoryService.addCategory(category);
         return "redirect:/categories";
@@ -43,7 +43,7 @@ public class CategoryController {
     public String listCategories(Model model){
         List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories",categories);
-        return "/category/list";
+        return "category/list";
     }
 
     @GetMapping("/edit/{id}")
@@ -51,7 +51,7 @@ public class CategoryController {
         Category category = categoryService.getCategory(id)
                 .orElseThrow(()->new IllegalStateException("Invalid category Id:" + id));
         model.addAttribute("category", category);
-        return "/category/edit";
+        return "category/edit";
     }
 
     @PostMapping("/edit/{id}")
@@ -59,7 +59,7 @@ public class CategoryController {
                                  BindingResult result, Model model){
         if(result.hasErrors()){
             category.setId(id);
-            return "/category/edit";
+            return "category/edit";
         }
         categoryService.updateCategory(category);
         model.addAttribute("categories",categoryService.getAllCategories());

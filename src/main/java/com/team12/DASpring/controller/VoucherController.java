@@ -28,13 +28,13 @@ public class VoucherController {
     @GetMapping("/add")
     public String showAddForm(Model model){
         model.addAttribute("voucher", new Voucher());
-        return "/voucher/add";
+        return "voucher/add";
     }
 
     @PostMapping("/add")
     public String addVoucher(@Valid Voucher voucher, BindingResult result){
         if(result.hasErrors()){
-            return "/voucher/add";
+            return "voucher/add";
         }
         voucherService.addVoucher(voucher);
         return "redirect:/vouchers";
@@ -44,7 +44,7 @@ public class VoucherController {
     public String listVouchers(Model model){
         List<Voucher> vouchers = voucherService.getAllVouchers();
         model.addAttribute("vouchers",vouchers);
-        return "/voucher/list";
+        return "voucher/list";
     }
 
     @GetMapping("/edit/{id}")
@@ -52,7 +52,7 @@ public class VoucherController {
         Voucher voucher = voucherService.getVoucher(id)
                 .orElseThrow(()->new IllegalStateException("Invalid voucher Id:" + id));
         model.addAttribute("voucher", voucher);
-        return "/voucher/edit";
+        return "voucher/edit";
     }
 
     @PostMapping("/edit/{id}")
@@ -60,7 +60,7 @@ public class VoucherController {
                                  BindingResult result, Model model){
         if(result.hasErrors()){
             voucher.setId(id);
-            return "/voucher/edit";
+            return "voucher/edit";
         }
         voucherService.updateVoucher(voucher);
         model.addAttribute("vouchers",voucherService.getAllVouchers());

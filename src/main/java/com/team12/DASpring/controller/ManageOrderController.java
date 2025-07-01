@@ -18,7 +18,7 @@ public class ManageOrderController {
     @GetMapping
     public String Index(Model model){
         model.addAttribute("orders", orderService.getAll());
-        return "/order/index";
+        return "order/index";
     }
 
 }
