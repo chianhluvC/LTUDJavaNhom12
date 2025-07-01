@@ -32,6 +32,20 @@ The system supports a full range of online shopping, payment, and product manage
 - 🔐 **User Role Management**: Assign User and Admin roles
 
 ## 🛠️ Installation & Setup
+
+### ☁️ AWS Deployment Ready
+This project is fully prepared for deployment on AWS, ensuring scalability, security, and high availability:
+
+✅ Amazon EC2 (Elastic Compute Cloud): Easily deploy the Spring Boot application via .jar file or Docker container.
+
+✅ Amazon RDS (Relational Database Service): Host the MySQL database in a scalable, secure cloud environment with automated backups.
+
+✅ Amazon S3 (Simple Storage Service): Can be integrated to store product images or static assets.
+
+✅ Elastic IP & Route 53: Supports custom domain mapping with HTTPS certificates via Let’s Encrypt or AWS Certificate Manager (ACM).
+
+✅ CloudWatch & Logs: Monitor system performance and application logs in real-time for easy maintenance and debugging.
+
 ### 📌 System Requirements
 - **JDK 17+**
 - **MySQL 8.0+**
